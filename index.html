@@ -5,6 +5,27 @@
     <title></title>
   </head>
   <body>
+    <div id="model">Model</div>
+    <div id="input">
+      Name: <input type="text" id="name"></input><br>
+      Save: <input type="number" id="save"></input><br>
+      BS/WS: <input type="number" id="bs"></input><br>
+      Attacks: <input type="number" id="attacks"></input><br>
+      Strength: <input type="number" id="strength"></input><br>
+      AP: <input type="number" id="ap"></input><br>
+      D: <input type="number" id="d"></input><br>
+      Points: <input type="number" id="points"></input><br>
+      <button type="button" onclick="mathhammer()">Calculate</button>
+    </div>
+    <div id="results">
+      Hits: <div id="hits"></div><br>
+      Wounds: <div id="wounds"></div><br>
+      Unsaved: <div id="unsaved"></div><br>
+      Damage: <div id="damage"></div><br>
+      DPP: <div id="dpp"></div><br>
+    </div>
 
+
+    <script src="main.js"></script>
   </body>
 </html>
