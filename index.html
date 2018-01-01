@@ -7,19 +7,26 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body ng-controller="MathhammerController as vm">
-    <h2>Models</h2>
-    <div ng-repeat="model in vm.models">
-      <p>{{$index + 1}}. {{model.name}}<br> 
-      Attacks:{{model.attacks}}
-      BS/WS:{{model.bs}}
-    </p>
-    </div>
+  <body ng-controller="ModelController as vm">
     <div>
-      Name: <input type="text" ng-model="vm.newModel.name">
-      Attacks: <input type="text" ng-model="vm.newModel.attacks">
-      BS/WS: <input type="text" ng-model="vm.newModel.bs">
-      <button ng-click="vm.addModel()">Add Model</button>
+      <button ng-click="vm.addModel(0)">Add Model</button>
     </div>
+    
+    <div ng-repeat="model in vm.displayedModels track by $index">
+      <ng-include src="model"></ng-include>
+    </div>
+    
+    <script type="text/ng-template" id="model.tpl.html">
+      <div>
+        <p ng-bind="name"></p>
+        <p>Hits: {{attacks*bs}}</p> 
+        Name: <input type="text" ng-model="name" />
+        Attacks: <input type="number" ng-model="attacks" />
+        BS/WS: <input type="number" ng-model="bs" />
+      </div>
+    </script>
   </body>
+
+
+</html>
 </html>

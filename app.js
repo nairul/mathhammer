@@ -1,18 +1,18 @@
-angular
-  .module("mathhammer", [])
-  .controller("MathhammerController", 
-    [MathhammerControllerFunction
-  ])
+angular.module("mathhammer", [])
+  .controller("ModelController", function() {
+    var ctrl = this;
+    
+    var models = [
+      "model.tpl.html"
+    ];
+    
+    ctrl.displayedModels = [];
+    
+    ctrl.addModel = function(modelIndex) {
+      ctrl.displayedModels.push(models[modelIndex]);
+    }
 
-function MathhammerControllerFunction () {
-  this.models= modelData
-  this.addModel = function() {
-    let model = {name: this.newModel.name, attacks: this.newModel.attacks, bs: this.newModel.bs}
-    this.models.push(model)
-  }
-}
-
-let modelData = [
-  { name: 'Bolter', attacks: '2', bs: '0.5' },
-  { name: 'Heavy Bolter', attacks: '3', bs: '0.33' }
-]
+    ctrl.calcHits = function() {
+    	
+    }
+  });
