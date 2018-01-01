@@ -1,3 +1,5 @@
+angular.module("friends", [])
+
 function ctrl($scope){
   $scope.rows = ['Paul','John','Lucie'];
   $scope.temp = false;
