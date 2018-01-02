@@ -16,7 +16,7 @@ angular
     ctrl.models = [];
 
     // initialize models with starting values to reduce console errors
-    $scope.number = 0 // temporary solution
+    $scope.index = 0 // temporary solution
     $scope.name = 'Model'
     $scope.attacks = 6
     $scope.bs = 0.5
@@ -27,14 +27,13 @@ angular
     $scope.points = 10
 
     ctrl.addModel = function() {
-      
       //add new html template to page
       ctrl.displayedTemplates.push(model);
 
       //add new model object to array of all models
       ctrl.models.push({name: '', attacks: '', bs: '', strength: '', save: '', ap: '', d: '', points: ''})
-
-      $scope.calc = function(number,name,attacks,bs,strength,save,ap,d,points) {  
+      }
+      $scope.calc = function(index,name,attacks,bs,strength,save,ap,d,points) {  
         
         //calculate things
         let hits = attacks*bs
@@ -50,17 +49,16 @@ angular
         $scope.damage = damage
         $scope.dpp = dpp
 
-        // Push models to an array so I can access specific models later (for graph/display purposes)
-        ctrl.models[number].name = name
-        ctrl.models[number].attacks = attacks
-        ctrl.models[number].bs = bs
-        ctrl.models[number].strength = strength
-        ctrl.models[number].save = save
-        ctrl.models[number].ap = ap
-        ctrl.models[number].d = d
-        ctrl.models[number].points = points
+        // Push models to an array so I can access specific models later for graph/display purposes
+        ctrl.models[index].name = name
+        ctrl.models[index].attacks = attacks
+        ctrl.models[index].bs = bs
+        ctrl.models[index].strength = strength
+        ctrl.models[index].save = save
+        ctrl.models[index].ap = ap
+        ctrl.models[index].d = d
+        ctrl.models[index].points = points
 
-        // number is a temporary solution. Users should not have to input the index number of every model. I want a unique index number to generate automatically for each model that is made.
+        // user index variable is a temporary solution. Users should not have to input the index number of every model. I want a unique index number to generate automatically for each model that is made.
       } 
-    }
   };
