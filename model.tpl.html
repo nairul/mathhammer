@@ -1,8 +1,9 @@
 <div style="border:1px solid black">
          <!-- UNDER THE HOOD -->
-        <div>
+        <div ng-hide="true">
         {{calc(number, name,attacks,bs,strength,save,ap,d,points)}}
         </div>
+
         <p>Hits: {{hits}} | Wounds(t4): {{woundst4}} | Unsaved: {{unsaved}} | Damage: {{damage}} | DPP: {{dpp}}</p>
 
         Model Number(temporary solution): <input type="number" ng-model="number" /></br>
