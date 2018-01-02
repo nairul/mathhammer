@@ -1,7 +1,6 @@
 <div style="border:1px solid black">
-<!--         <p ng-bind="name"></p> -->
          <!-- UNDER THE HOOD -->
-        <div ng-hide="true">
+        <div>
         {{calc(number, name,attacks,bs,save,ap,d,points)}}
         </div>
         <p>Hits: {{hits}}</p>
@@ -9,6 +8,9 @@
         <p>Unsaved: {{unsaved}}</p>
         <p>Damage: {{damage}}</p>
         <p>DPP: {{dpp}}</p>
+
+        Test <input type="number" ng-model="test" /><button ng-click="vm.logTest()">Log Test</button>
+        </br>
 
         Model Number(temporary solution): <input type="number" ng-model="number" /></br>
 
