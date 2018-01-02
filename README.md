@@ -3,14 +3,23 @@
 
 # App TO DO
   ~~1) Target user input values in app.js~~
+
   ~~2) Add simple calc functions to js (Hits, Wounds, Damage, DPP). Remove all calcs from html~~
+
   2.5) How do we access data from specific models if there are multiple? See app.js comment.
+
   3) Familiarize myself with graphs.
+
   4) Add advanced options - rerolls & modifiers
+
   5) Add model-grouping functionality
+
   6) Wireframe
+
   7) Add CSS and Bootstrap
+
   8) Implement Graphs
+  
   ~~9) Move model html template to seperate file~~ 
 
 # Roadmap
