@@ -6,7 +6,7 @@
 
   ~~2) Add simple calc functions to js (Hits, Wounds, Damage, DPP). Remove all calcs from html~~
 
-  3) How do we access data from specific models if there are multiple? See app.js comment.
+  ~~3) Push models to an array so that they may be accessed for graphs and display purposes~~ I've done this through a temporary solution... but it's far from ideal
 
   4) Familiarize myself with graphs.
 
