@@ -1,1 +1,29 @@
-<p>test</p>
+<div style="border:1px solid black">
+        <p ng-bind="name"></p>
+         <!-- UNDER THE HOOD -->
+        <div ng-hide="true">
+        {{calc(attacks,bs,save,ap,d,points)}}
+        </div>
+        <p>Hits: {{hits}}</p>
+        <p>Wounds(t4): {{woundst4}}</p>
+        <p>Unsaved: {{unsaved}}</p>
+        <p>Damage: {{damage}}</p>
+        <p>DPP: {{dpp}}</p>
+
+        Name: <input type="text" ng-model="name" /></br>
+
+        Attacks: <input type="text" ng-model="attacks">
+        </br>
+
+        BS/WS: <input type="number" ng-model="bs" /></br>
+
+        Strength: <input type="number" ng-model="strength" /></br>
+
+        Save: <input type="number" ng-model="save" /></br>
+
+        AP: <input type="number" ng-model="ap" /></br>
+
+        Damage: <input type="number" ng-model="d" /></br>
+
+        Points: <input type="number" ng-model="points" /></br>
+    </div>
