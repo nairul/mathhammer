@@ -19,18 +19,29 @@
     <script type="text/ng-template" id="model.tpl.html">
       <div style="border:1px solid black">
         <p ng-bind="name"></p>
-        <p>Hits: {{attacks*bs}}</p> 
+        <p>Hits: {{hits(attacks,bs)}}</p>
+        <p>Wounds S4 v. T4: {{wounds()}}</p> 
         Name: <input type="text" ng-model="name" /><br>
-        Attacks: <input type="text" ng-model="attacks"><br>
+
+        Attacks: <input type="text" ng-model="attacks">
+        <!-- <button ng-click="logAttacks(attacks)">Console Log</button> -->
+        <br>
+
         BS/WS: <input type="number" ng-model="bs" /><br>
+
         Strength: <input type="number" ng-model="strength" /><br>
+
         Save: <input type="number" ng-model="save" /><br>
+
         AP: <input type="number" ng-model="ap" /><br>
+
         Damage: <input type="number" ng-model="d" /><br>
+
         Points: <input type="number" ng-model="points" /><br>
       </div>
     </script>
-            Attacks: <input type="text" ng-model="id"><button ng-click="logId()">Console Log</button>
+            <!-- Attacks: <input type="text" ng-model="attacks">
+            <button ng-click="logAttacks(attacks)">Console Log</button> -->
   </body>
 
 

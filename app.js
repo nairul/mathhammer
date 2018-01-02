@@ -12,9 +12,14 @@ angular
     ctrl.addModel = function(modelIndex) {
       ctrl.displayedModels.push(models[modelIndex]
         );
-    }
-$scope.logId = function() {
-      console.log($scope.id)
+      $scope.hits = function(attacks,bs) {
+      hits = attacks*bs
+      return hits      
       }
+      $scope.wounds = function() {
+      wounds = hits*0.5
+      return wounds
+      }
+    }
     
   };
