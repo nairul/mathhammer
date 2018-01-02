@@ -3,16 +3,24 @@ angular
   .controller("ModelController", ['$scope', ControllerFunction])
 
   	function ControllerFunction($scope) {
+
     var ctrl = this;
+    var template = "model.tpl.html"
     
-    var models = ["model.tpl.html"];
-    
-    ctrl.displayedModels = [];
-    
-    ctrl.addModel = function(modelIndex) {
-      ctrl.displayedModels.push(models[modelIndex]
-        );
-      $scope.calc = function(attacks,bs,save,ap,d,points) {
+    ctrl.displayedTemplates = [];
+    // ctrl.models = function Model(name,attacks,bs,save,ap,d,points) {
+    //   this.name = name
+    //   this.attacks = attacks
+    //   this.bs = bs
+    //   this.save = save
+    //   this.ap = ap
+    //   this.d = d
+    //   this.points = points
+    // }
+
+    ctrl.addTemplate = function() {
+      ctrl.displayedTemplates.push(template);
+      $scope.calc = function(name,attacks,bs,save,ap,d,points) {  
       let hits = attacks*bs
       let woundst4 = hits*0.5
       let unsaved = woundst4*(1-(save+ap))
