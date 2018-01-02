@@ -10,7 +10,7 @@ angular
     var model = "model.tpl.html"
 
     //this array holds all the html templates created by user
-    ctrl.displayedModels = [];
+    ctrl.displayedTemplates = [];
 
     // array of all models so I can access specific models later
     ctrl.models = [];
@@ -27,7 +27,7 @@ angular
     $scope.points = 10
 
     ctrl.addModel = function() {
-      ctrl.displayedModels.push(model);
+      ctrl.displayedTemplates.push(model);
       ctrl.models.push({name: '', attacks: '', bs: '', strength: '', save: '', ap: '', d: '', points: ''})
       $scope.calc = function(number,name,attacks,bs,strength,save,ap,d,points) {  
         

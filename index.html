@@ -7,18 +7,19 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+
   <body ng-controller="ModelController as vm">
+    <div ng-repeat="model in vm.models">{{model}}
+    </div>
     <div>
       <button ng-click="vm.addModel()">Add Model</button>
     </div>
     
-    <div ng-repeat="model in vm.displayedModels track by $index">
+    <div ng-repeat="model in vm.displayedTemplates track by $index">
       <ng-include src="model"></ng-include>
     </div>
     <script type="text/ng-template" src="model.tpl.html">
     </script>
-  <div ng-repeat="model in vm.models">{{model}}
-  </div>
   </body>
 
 
