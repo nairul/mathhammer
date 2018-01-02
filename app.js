@@ -9,15 +9,16 @@ angular
 
     ctrl.displayedModels = [];
     ctrl.models = [];
- 
- $scope.number = 0
- $scope.name = 'Model'
- $scope.attacks = 6
- $scope.bs = 0.5
- $scope.save = 0.5
- $scope.ap = -0.16
- $scope.d = 2
- $scope.points = 10
+    
+ // initialize models with starting values to reduce console errors
+   $scope.number = 0
+   $scope.name = 'Model'
+   $scope.attacks = 6
+   $scope.bs = 0.5
+   $scope.save = 0.5
+   $scope.ap = -0.16
+   $scope.d = 2
+   $scope.points = 10
 
 
     ctrl.addModel = function() {
