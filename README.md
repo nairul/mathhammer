@@ -6,7 +6,7 @@
 
   ~~2) Add simple calc functions to js (Hits, Wounds, Damage, DPP). Remove all calcs from html~~
 
-  ~~3) Push models to an array so that they may be accessed for graphs and display purposes~~ I've done this through a temporary solution... but it's far from ideal
+  ~~3) Push models to an array so that they may be accessed for graphs and display purposes~~
 
   4) Familiarize myself with graphs.
 

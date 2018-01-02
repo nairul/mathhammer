@@ -8,7 +8,6 @@ window.app = angular
 
   // initialize models with starting values to reduce console errors
   var initialModel = {
-    index: 0,
     name: 'Model',
     attacks: 6,
     bs: 0.5,
