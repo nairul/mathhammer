@@ -6,15 +6,13 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-
   <body ng-controller="ModelController">
-    <div ng-repeat="model in models">{{model}}
-    </div>
+    <div ng-repeat="model in models">{{model}}</div>
     <div>
       <button ng-click="addModel()">Add Model</button>
     </div>
-    <div ng-repeat="model in models track by $index">
-      <my-inputs></my-inputs>
+    <div ng-repeat="model in models">
+      <my-inputs model="model" ></my-inputs>
     </div>
     <script src="my-inputs.directive.js"></script>
   </body>
