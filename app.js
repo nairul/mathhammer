@@ -26,6 +26,7 @@ angular
         $scope.damage = damage
         $scope.dpp = dpp
 
+// "number" variable is a temporary solution. Users should not have to input the index number of every model. I want a unique index number to generate automatically for each model that is made.
         ctrl.models[number].name = name
         ctrl.models[number].attacks = attacks
       } 
