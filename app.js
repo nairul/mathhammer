@@ -21,7 +21,7 @@ window.app = angular
 
   $scope.addModel = function() {
     //add new model object to array of all models
-    $scope.models.push(initialModel);
+    $scope.models.push(Object.assign({}, initialModel));
   }
 
 }]);

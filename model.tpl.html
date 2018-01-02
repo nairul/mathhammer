@@ -1,27 +1,21 @@
 <div style="border:1px solid black">
-     <!-- UNDER THE HOOD -->
-    <div>
-    {{calc(index, name,attacks,bs,strength,save,ap,d,points)}}
-    </div>
-
     <p>Hits: {{hits}} | Wounds(t4): {{woundst4}} | Unsaved: {{unsaved}} | Damage: {{damage}} | DPP: {{dpp}}</p>
 
-    Index Number(temporary solution): <input type="number" ng-model="index" /></br>
+    <form>
+        Name: <input type="text" ng-model="model.name" /></br>
 
-    Name: <input type="text" ng-model="name" /></br>
+        Attacks: <input type="number" ng-model="model.attacks" /></br>
 
-    Attacks: <input type="number" ng-model="attacks" />
-    </br>
+        BS/WS: <input type="number" ng-model="model.bs" /></br>
 
-    BS/WS: <input type="number" ng-model="bs" /></br>
+        Strength: <input type="number" ng-model="model.strength" /></br>
 
-    Strength: <input type="number" ng-model="strength" /></br>
+        Save: <input type="number" ng-model="model.save" /></br>
 
-    Save: <input type="number" ng-model="save" /></br>
+        AP: <input type="number" ng-model="model.ap" /></br>
 
-    AP: <input type="number" ng-model="ap" /></br>
+        Damage: <input type="number" ng-model="model.d" /></br>
 
-    Damage: <input type="number" ng-model="d" /></br>
-
-    Points: <input type="number" ng-model="points" /></br>
+        Points: <input type="number" ng-model="model.points" /></br>
+    </form>
 </div>
