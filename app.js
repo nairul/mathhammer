@@ -16,7 +16,7 @@ angular
     ctrl.models = [];
 
     // initialize models with starting values to reduce console errors
-    $scope.number = 0
+    $scope.number = 0 // temporary solution
     $scope.name = 'Model'
     $scope.attacks = 6
     $scope.bs = 0.5
@@ -27,8 +27,13 @@ angular
     $scope.points = 10
 
     ctrl.addModel = function() {
+      
+      //add new html template to page
       ctrl.displayedTemplates.push(model);
+
+      //add new model object to array of all models
       ctrl.models.push({name: '', attacks: '', bs: '', strength: '', save: '', ap: '', d: '', points: ''})
+
       $scope.calc = function(number,name,attacks,bs,strength,save,ap,d,points) {  
         
         //calculate things
