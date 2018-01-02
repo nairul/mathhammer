@@ -5,13 +5,13 @@ angular
   	function ControllerFunction($scope) {
 
     var ctrl = this;
-    var template = "model.tpl.html"
+    var model = "model.tpl.html"
 
-    ctrl.displayedTemplates = [];
+    ctrl.displayedModels = [];
     ctrl.models = [];
 
-    ctrl.addTemplate = function() {
-      ctrl.displayedTemplates.push(template);
+    ctrl.addModel = function() {
+      ctrl.displayedModels.push(model);
       ctrl.models.push({name: '', attacks: ''})
 
       $scope.calc = function(number,name,attacks,bs,save,ap,d,points) {  
