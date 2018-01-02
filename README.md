@@ -20,4 +20,4 @@
 
   9) Implement Graphs
   
-  ~~9) Move model html template to seperate file~~ 
+  ~~10) Move model html template to seperate file~~ 
