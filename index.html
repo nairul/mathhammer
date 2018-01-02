@@ -17,14 +17,20 @@
     </div>
     
     <script type="text/ng-template" id="model.tpl.html">
-      <div>
+      <div style="border:1px solid black">
         <p ng-bind="name"></p>
         <p>Hits: {{attacks*bs}}</p> 
-        Name: <input type="text" ng-model="name" />
-        Attacks: <input type="number" ng-model="attacks" />
-        BS/WS: <input type="number" ng-model="bs" />
+        Name: <input type="text" ng-model="name" /><br>
+        Attacks: <input type="text" ng-model="attacks"><br>
+        BS/WS: <input type="number" ng-model="bs" /><br>
+        Strength: <input type="number" ng-model="strength" /><br>
+        Save: <input type="number" ng-model="save" /><br>
+        AP: <input type="number" ng-model="ap" /><br>
+        Damage: <input type="number" ng-model="d" /><br>
+        Points: <input type="number" ng-model="points" /><br>
       </div>
     </script>
+            Attacks: <input type="text" ng-model="id"><button ng-click="logId()">Console Log</button>
   </body>
 
 

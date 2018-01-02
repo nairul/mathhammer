@@ -1,18 +1,20 @@
-angular.module("mathhammer", [])
-  .controller("ModelController", function() {
+angular
+  .module("mathhammer", [])
+  .controller("ModelController", ['$scope', ControllerFunction])
+
+  	function ControllerFunction($scope) {
     var ctrl = this;
     
-    var models = [
-      "model.tpl.html"
-    ];
+    var models = ["model.tpl.html"];
     
     ctrl.displayedModels = [];
     
     ctrl.addModel = function(modelIndex) {
-      ctrl.displayedModels.push(models[modelIndex]);
+      ctrl.displayedModels.push(models[modelIndex]
+        );
     }
-
-    ctrl.calcHits = function() {
-    	
-    }
-  });
+$scope.logId = function() {
+      console.log($scope.id)
+      }
+    
+  };
