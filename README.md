@@ -2,7 +2,7 @@
   1) Continue testing formulas
 
 # App TO DO
-  1) Target user input values in app.js
+  1) ~~Target user input values in app.js~~
   2) Move model html template to seperate file
   3) Add simple calc functions to js (Hits, Wounds, Damage, DPP). Remove all calcs from html.
   4) Familiarize myself with graphs
