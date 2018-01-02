@@ -30,7 +30,7 @@ angular
       //add new html template to page
       ctrl.displayedTemplates.push(model);
 
-      //add new model object to array of all models
+      //add a new model object to array of all models
       ctrl.models.push({name: '', attacks: '', bs: '', strength: '', save: '', ap: '', d: '', points: ''})
       }
       $scope.calc = function(index,name,attacks,bs,strength,save,ap,d,points) {  
@@ -49,7 +49,7 @@ angular
         $scope.damage = damage
         $scope.dpp = dpp
 
-        // Push models to an array so I can access specific models later for graph/display purposes
+        // Update model characteristics in models array
         ctrl.models[index].name = name
         ctrl.models[index].attacks = attacks
         ctrl.models[index].bs = bs
@@ -59,6 +59,6 @@ angular
         ctrl.models[index].d = d
         ctrl.models[index].points = points
 
-        // user index variable is a temporary solution. Users should not have to input the index number of every model. I want a unique index number to generate automatically for each model that is made.
+        // index variable inputted by user is a temporary solution. Users should not have to input the index number of each model. I want a unique index number to generate automatically for each model that is made.
       } 
   };
