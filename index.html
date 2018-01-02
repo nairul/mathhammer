@@ -15,10 +15,10 @@
     <div ng-repeat="template in vm.displayedTemplates track by $index">
       <ng-include src="template"></ng-include>
     </div>
-    
     <script type="text/ng-template" src="model.tpl.html">
     </script>
-<!--     <div ng-repeat="model in vm.models">{{model}}</div> -->
+  <div ng-repeat="model in vm.models">{{model}}
+  </div>
   </body>
 
 
