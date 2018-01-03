@@ -13,8 +13,8 @@ window.app = angular
     bs: 0.5,
     strength: 4,
     save: 0.5,
-    ap: -0.16,
-    d: 2,
+    ap: 0,
+    d: 1,
     points: 10
   };
 
