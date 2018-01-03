@@ -38,22 +38,10 @@ app.directive('myInputs', function() {
             // //calculate dpp for T3..T8
             dpp[i] = scope.model.damage[i]/scope.model.points        
           }
+        //update arrays from app.js
       scope.model.damage = damage
       scope.model.dpp = dpp
-        // calculate damage for T3..T8
-        // scope.model.damageT3 = unsaved[0]*scope.model.d;
-        // scope.model.damageT4 = unsaved[1]*scope.model.d;
-        // scope.model.damageT5 = unsaved[2]*scope.model.d;
-        // scope.model.damageT6 = unsaved[3]*scope.model.d;
-        // scope.model.damageT7 = unsaved[4]*scope.model.d;
-        // scope.model.damageT8 = unsaved[5]*scope.model.d;
-        // //calculate damage per point for T3..T8
-        // scope.model.dppT3 = scope.model.damageT3/scope.model.points
-        // scope.model.dppT4 = scope.model.damageT4/scope.model.points
-        // scope.model.dppT5 = scope.model.damageT5/scope.model.points
-        // scope.model.dppT6 = scope.model.damageT6/scope.model.points
-        // scope.model.dppT7 = scope.model.damageT7/scope.model.points
-        // scope.model.dppT8 = scope.model.damageT8/scope.model.points
+
       };
 
       // initial run
