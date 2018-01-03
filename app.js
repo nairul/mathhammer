@@ -15,7 +15,9 @@ window.app = angular
     save: 0.5,
     ap: 0,
     d: 1,
-    points: 10
+    points: 10,
+    damage: [],
+    dpp: []
   };
 
   $scope.addModel = function() {
