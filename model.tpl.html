@@ -1,6 +1,35 @@
-<div style="border:1px solid black">
-<p>Damage: {{damageT3}}, {{damageT4}}, {{damageT5}}, {{damageT6}}, {{damageT7}}, {{damageT8}}</p>
-<p>DPP:{{dppT3}},{{dppT4}},{{dppT5}},{{dppT6}},{{dppT7}},{{dppT8}}</p>
+<div>
+<table style="width:100%">
+  <tr>
+    <th></th>
+    <th>T3</th>
+    <th>T4</th> 
+    <th>T5</th>
+    <th>T6</th>
+    <th>T7</th> 
+    <th>T8</th>
+  </tr>
+  <tr>
+    <td>dmg</td>
+    <td>{{damageT3}}</td>
+    <td>{{damageT4}}</td>
+    <td>{{damageT5}}</td>
+    <td>{{damageT6}}</td>
+    <td>{{damageT7}}</td>
+    <td>{{damageT8}}</td>
+  </tr>
+  <tr>
+    <td>dpp</td>
+    <td>{{dppT3}}</td>
+    <td>{{dppT4}}</td>
+    <td>{{dppT5}}</td>
+    <td>{{dppT6}}</td>
+    <td>{{dppT7}}</td>
+    <td>{{dppT8}}</td>
+  </tr>
+
+</table>
+
 
     <form>
         Name: <input type="text" ng-model="model.name" /></br>
@@ -19,4 +48,5 @@
 
         Points: <input type="number" ng-model="model.points" /></br>
     </form>
+    <br>
 </div>

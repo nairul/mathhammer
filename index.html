@@ -5,6 +5,12 @@
     <script src="app.js"></script>
     <meta charset="utf-8">
     <title></title>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    </style>
   </head>
   <body ng-controller="ModelController">
     <div ng-repeat="model in models">{{model}}</div>
