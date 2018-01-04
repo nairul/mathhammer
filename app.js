@@ -4,36 +4,37 @@ window.app = angular
 .controller("ModelController", ['$scope', function ControllerFunction($scope) {
 
 
-  // array of all models so I can access specific models later. 
+  // array of all models so I can access specific models later.
   $scope.models = [];
 
-  //chart
-  function updateGraph() {
-    var chartData = []
-
-    for (var i=0;i<$scope.models.length;i++){
-      chartData.push({
-        label: $scope.models[i].name,
-        backgroundColor: 'rgba(255, 255, 255, .4)', 
-        borderColor: 'rgb(255, 99, 132)', 
-        data: $scope.models[i].damage
-      })
-    }
-    var damageCanvas = document.getElementById("damageChart").getContext('2d');
-    var damageChart = new Chart(damageCanvas, {
-      type: 'line',
-      data: {
-        labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
-        datasets: chartData,
-      },
-      options: {} 
+  function generateDataSet() {
+    return  $scope.models.map(function(model) {
+        return {
+          label: model.name,
+          backgroundColor: 'rgba(255, 255, 255, .4)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: model.damage
+        };
       })
   }
 
-  //initial run
-  updateGraph();
-  //
-  $scope.$watch('models', updateGraph, true);
+  var damageChart = new Chart(document.getElementById("damage-chart").getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
+      datasets: generateDataSet()
+    },
+    options: {
+      animation: {
+        duration: 0
+      }
+    }
+  });
+
+  $scope.$watch('models', function updateGraph() {
+    damageChart.data.datasets = generateDataSet();
+    damageChart.update();
+  }, true);
 
   //add new model object to array of all models
   $scope.addModel = function() {
@@ -53,6 +54,5 @@ window.app = angular
 
     $scope.models.push(Object.assign({}, newModel))
   };
-
 
 }]);
