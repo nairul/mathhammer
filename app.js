@@ -3,8 +3,20 @@ window.app = angular
 
 .controller("ModelController", ['$scope', function ControllerFunction($scope) {
 
-  // array of all models so I can access specific models later
-  $scope.models = [];
+  // array of all models so I can access specific models later. 
+  // Start with 1 initial model on the page
+  $scope.models = [{
+    name: 'Model',
+    attacks: 6,
+    bs: 0.5,
+    strength: 4,
+    save: 0.5,
+    ap: 0,
+    d: 1,
+    points: 10,
+    damage: [],
+    dpp: []
+  }];
 
   // initialize models with starting values to reduce console errors
   // var initialModel = {
@@ -29,7 +41,7 @@ window.app = angular
   //   dppT7: 0,
   //   dppT8: 0
   // };
-  var initialModel = {
+  var newModel = {
     name: 'Model',
     attacks: 6,
     bs: 0.5,
@@ -43,7 +55,8 @@ window.app = angular
   };
   $scope.addModel = function() {
     //add new model object to array of all models
-    $scope.models.push(Object.assign({}, initialModel));
+    $scope.models.push(Object.assign({}, newModel));
   };
+
 
 }]);

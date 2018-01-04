@@ -49,6 +49,7 @@ app.directive('myInputs', function() {
 
       //
       scope.$watch("model", updateValues, true);
+
     }
   };
 });
