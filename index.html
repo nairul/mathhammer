@@ -24,26 +24,30 @@
 
     <script src="my-inputs.directive.js"></script>
 
-    <!--     access model damage and dpp e.g. {{models[0].damage}} -->
+ <!--  HERE{{models[0].name}}HERE -->
 
-    <!-- create chart -->
-    <canvas id="myChart" width="400" height="400"></canvas>
-<script>
-var ctx = document.getElementById("myChart").getContext('2d');
-var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
-      datasets: [{
-        label: "damage",
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [1,2,3,4,5,6],
-      }]
-    },
-// Configuration options go here
-    options: {} 
-});
-</script>
+    <!-- create charts with regular chart.js -->
+    <!-- <canvas id="damageChart" width="400" height="400"></canvas>
+    <canvas id="dppChart" width="400" height="400"></canvas>
+    <script>
+      //graph
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
+          datasets: [{
+            label: 'test', // why doesn't this work
+            backgroundColor: 'rgba(255, 255, 255, .4)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [1,2,1,2,1,2]
+          }]  
+        },
+      // Configuration options go here
+      options: {} 
+      });
+    </script> -->
+
+
   </body>
 </html>
