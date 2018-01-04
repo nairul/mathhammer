@@ -7,7 +7,7 @@ app.directive('userInputs', function() {
     },
     link: function(scope, elem, attr) {
       function updateValues() {
-        //calculate hits
+        //calculate hits 
         scope.hits = scope.model.attacks*scope.model.bs
         
         var wound_chances = []
