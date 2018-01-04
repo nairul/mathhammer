@@ -14,39 +14,44 @@
     </style>
   </head>
   <body ng-controller="ModelController">
-    <div ng-repeat="model in models">{{model}}</div>
-    <div>
       <button ng-click="addModel()">Add Model</button>
     </div>
     <div ng-repeat="model in models">
-      <my-inputs model="model" ></my-inputs>
+      <user-inputs model="model" ></user-inputs>
     </div>
 
-    <script src="my-inputs.directive.js"></script>
+    <script src="user-inputs.directive.js"></script>
+    <!-- show model array for debugging -->
+    <div ng-repeat="model in models">{{model}}</div>
 
- <!--  HERE{{models[0].name}}HERE -->
 
-    <!-- create charts with regular chart.js -->
-    <!-- <canvas id="damageChart" width="400" height="400"></canvas>
+    <!-- charts with vanilla chart.js -->
+    <canvas id="damageChart" width="400" height="400"></canvas>
     <canvas id="dppChart" width="400" height="400"></canvas>
+    
+    <!-- <VINCENT HALPME>. I want the app to have two graphs total, one for damage and one for dpp (damage per point). Below is the script I started making for the damage graph, with placeholder values. 
+
+    To stop using placeholders, this script will need access to the $scope.models array found in app.js, AND it needs to update in realtime just like model.tpl.html & user-inputs.directive.js. So should this script be put into a new directive? A new controller? </VINCENT HALPME>-->
+
     <script>
-      //graph
-      var ctx = document.getElementById("myChart").getContext('2d');
-      var myLineChart = new Chart(ctx, {
-        type: 'line',
+      var ctx = document.getElementById("damageChart").getContext('2d');
+
+      var myLineChart = new Chart(ctx, { // I'm guessing this is a big part that needs changing... because here it's only creating the chart, not updating it.
+        type: 'line', // make it a line chart, just like my spreadsheet
         data: {
           labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
-          datasets: [{
-            label: 'test', // why doesn't this work
+
+          datasets: [ // make simple For loop where i<=models.length that pushes each object to this datasets array
+            {label: 'Model1', // placeholder -- should look like model[i].name
             backgroundColor: 'rgba(255, 255, 255, .4)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [1,2,1,2,1,2]
-          }]  
-        },
-      // Configuration options go here
+            data: [1,3,1,3,1,3] // placeholder -- should look like model[i].damage, which is an array
+            }
+          ]},
+      // Graph customization
       options: {} 
       });
-    </script> -->
+    </script>
 
 
   </body>
