@@ -7,12 +7,25 @@ window.app = angular
   // array of all models so I can access specific models later.
   $scope.models = [];
 
+  var colorPallet = [
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)',
+    'rgba(255, 255, 255, .4)'
+  ];
+
   function generateDataSet() {
-    return  $scope.models.map(function(model) {
+    return  $scope.models.map(function(model, index) {
         return {
           label: model.name,
-          backgroundColor: 'rgba(255, 255, 255, .4)',
-          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: colorPallet[index],
+          borderColor: colorPallet[index],
           data: model.damage
         };
       })
