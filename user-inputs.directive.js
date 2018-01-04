@@ -1,4 +1,4 @@
-app.directive('myInputs', function() {
+app.directive('userInputs', function() {
   return {
     restrict: 'E',
     templateUrl: 'model.tpl.html',
