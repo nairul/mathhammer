@@ -31,24 +31,27 @@
     
     <!-- <VINCENT HALP>. I want the app to have two graphs total, one for damage and one for dpp (damage per point). Below is the script I started making for the damage graph, with placeholder values. 
 
-    To stop using placeholders, this script will need access to the $scope.models array found in app.js, AND it needs to update in realtime just like model.tpl.html & user-inputs.directive.js. So should this script be put into a new directive? A new controller? </VINCENT HALP>-->
+    To stop using placeholders, this script will need access to the $scope.models array found in app.js. But that's not enough, because it ALSO needs to update in realtime just like model.tpl.html & user-inputs.directive.js. How do I accomplish this logic?
+    </VINCENT HALP>-->
 
     <script>
       var ctx = document.getElementById("damageChart").getContext('2d');
 
-      var myLineChart = new Chart(ctx, { // I'm guessing this is a big part that needs changing... because here it's only creating the chart, not updating it.
+      var myLineChart = new Chart(ctx, {
         type: 'line', // a line chart, just like my spreadsheet
         data: {
           labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
 
-          datasets: [ // make simple For loop where i<=models.length that pushes each object to this datasets array
-            {label: 'Model1', // placeholder -- should look like model[i].name
-            backgroundColor: 'rgba(255, 255, 255, .4)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [1,3,1,3,1,3] // placeholder -- should look like model[i].damage, which is an array
+          // make simple For loop where i<=models.length that pushes each data object (one object for each model) to this datasets array
+          datasets: [
+            {label: 'Model1', // placeholder -- should be something like $scope.models[i].name
+            backgroundColor: 'rgba(255, 255, 255, .4)', // transparent background
+            borderColor: 'rgb(255, 99, 132)', // line color
+            data: [1,3,1,3,1,3] // placeholder -- should be something like $scope.models[i].damage
             }
-          ]},
-      // Graph customization
+          ]
+        },
+      // Graph customization. Options listed on http://www.chartjs.org/
       options: {} 
       });
     </script>
