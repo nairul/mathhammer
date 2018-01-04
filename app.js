@@ -8,24 +8,24 @@ window.app = angular
   $scope.models = [];
 
   var colorPallet = [
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)',
-    'rgba(255, 255, 255, .4)'
+    '#e6194b',
+    '#3cb44b',
+    '#ffe119',
+    '#0082c8',
+    '#f58231',
+    '#911eb4',
+    '#46f0f0',
+    '#f032e6',
+    '#d2f53c',
+    '#fabebe'
   ];
 
   function generateDataSet() {
     return  $scope.models.map(function(model, index) {
         return {
           label: model.name,
-          backgroundColor: colorPallet[index],
-          borderColor: colorPallet[index],
+          backgroundColor: 'rgba(255, 255, 255, 0)',
+          borderColor: model.color,
           data: model.damage
         };
       })
@@ -37,10 +37,15 @@ window.app = angular
       labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
       datasets: generateDataSet()
     },
+    maintainAspectRatio: false,
     options: {
-      animation: {
-        duration: 0
-      }
+      responsive: true,
+      maintainAspectRatio: true,
+      elements: {
+            line: {
+                tension: 0, // disables bezier curves
+            }
+        }
     }
   });
 
@@ -62,7 +67,8 @@ window.app = angular
       d: 1,
       points: 10,
       damage: [],
-      dpp: []
+      dpp: [],
+      color: colorPallet[$scope.models.length]
     };
 
     $scope.models.push(Object.assign({}, newModel))
