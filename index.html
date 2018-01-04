@@ -35,9 +35,9 @@
     </VINCENT HALP>-->
 
     <script>
-      var ctx = document.getElementById("damageChart").getContext('2d');
+      var damageCanvas = document.getElementById("damageChart").getContext('2d');
 
-      var myLineChart = new Chart(ctx, {
+      var damageChart = new Chart(damageCanvas, {
         type: 'line', // a line chart, just like my spreadsheet
         data: {
           labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
