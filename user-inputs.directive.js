@@ -16,8 +16,8 @@ app.directive('userInputs', function() {
         var skill = scope.model.skill
         var attacks = scope.model.attacks
         var hitRerolls = {
-          ones: scope.model.rerolls.hits.ones,
-          failed: scope.model.rerolls.hits.failed
+          ones: scope.model.rerolls.hit.ones,
+          failed: scope.model.rerolls.hit.failed
         }
         var hitMod = scope.model.hitMod
         var hitTrigger = {}
@@ -25,13 +25,13 @@ app.directive('userInputs', function() {
           hitTrigger = {
             roll: scope.model.hitTrigger.roll,
             attacks: scope.model.hitTrigger.attacks,
-            hits: scope.model.hitTrigger.hits,
+            hit: scope.model.hitTrigger.hit,
             mortals: scope.model.hitTrigger.mortals}
         } else {
           hitTrigger = {
             roll: 0,
             attacks: 0,
-            hits: 0,
+            hit: 0,
             mortals: 0,
           }
         }
@@ -51,14 +51,14 @@ app.directive('userInputs', function() {
             mHitTrigger = hitTrigger.roll+hitMod
           }      
         //values per round 
-        var roundHits = [0,0,0,0]
+        var roundHit = [0,0,0,0]
         var roundHitRerolls = [0,0]
         var roundHitTriggers = [0,0,0,0]
         //round 1 hits
         if (hitRerolls.failed && hitMod>=0) {
-          roundHits[0] = attacks*skill
+          roundHit[0] = attacks*skill
         } else {
-          roundHits[0] = attacks*mSkill
+          roundHit[0] = attacks*mSkill
         }
         //round 1 triggers
         if (skill<mHitTrigger && hitReroll.failed) {
@@ -73,16 +73,16 @@ app.directive('userInputs', function() {
           roundHitRerolls[0] = ((1/6)*attacks)
         }
         //round 2 hits
-        roundHits[1] = (mSkill*roundHitRerolls[0])
+        roundHit[1] = (mSkill*roundHitRerolls[0])
         //round 2 triggers
         roundHitTriggers[1] = mHitTrigger*roundHitRerolls[0]
         //round 3 rolls
         var bonusAttacks = hitTrigger.attacks*(roundHitTriggers[0]+roundHitTriggers[1])
         //round 3 hits
         if (hitRerolls.failed && hitMod>=0) {
-          roundHits[2] = bonusAttacks*skill
+          roundHit[2] = bonusAttacks*skill
         } else {
-          roundHits[2] = bonusAttacks*mSkill
+          roundHit[2] = bonusAttacks*mSkill
         }
         //round 3 triggers
         if (skill<mHitTrigger && hitReroll.failed) {
@@ -97,25 +97,25 @@ app.directive('userInputs', function() {
           roundHitRerolls[1] = ((1/6)*bonusAttacks)
         }
         //round 4 hits
-        roundHits[3] = (mSkill*roundHitRerolls[1])
+        roundHit[3] = (mSkill*roundHitRerolls[1])
         //round 4 triggers
         roundHitTriggers[3] = mHitTrigger*roundHitRerolls[1]
         //total triggers
         var hitTriggersTotal = roundHitTriggers.reduce(add, 0)
         // total hits
-        var hitsTotal = 0
+        var hitTotal = 0
         if (skill == 1) {
-          hitsTotal = attacks 
+          hitTotal = attacks 
         } else {
-        hitsTotal = (roundHits.reduce(add, 0)) + (hitTriggersTotal*hitTrigger.hits) - (hitTriggersTotal*hitTrigger.mortals)
+        hitTotal = (roundHit.reduce(add, 0)) + (hitTriggersTotal*hitTrigger.hit) - (hitTriggersTotal*hitTrigger.mortals)
         }
         // show calculations in HTML
-        scope.model.roundHits = roundHits
+        scope.model.roundHit = roundHit
         scope.model.roundHitTriggers = roundHitTriggers
         scope.model.roundHitRerolls = roundHitRerolls
         scope.model.bonusAttacks = bonusAttacks
         scope.model.hitTriggersTotal = hitTriggersTotal
-        scope.model.hitsTotal = hitsTotal
+        scope.model.hitTotal = hitTotal
         //CALCULATE WOUNDS/UNSAVED/DAMAGE/DPP 
         //grab input
         var save = scope.model.save
@@ -124,8 +124,8 @@ app.directive('userInputs', function() {
         var d = scope.model.d
         var points = scope.model.points
         var woundRerolls = {
-          ones: scope.model.rerolls.wounds.ones,
-          failed: scope.model.rerolls.wounds.failed
+          ones: scope.model.rerolls.wound.ones,
+          failed: scope.model.rerolls.wound.failed
         }
         var woundMod = scope.model.woundMod
         var woundTrigger = {}
@@ -134,7 +134,7 @@ app.directive('userInputs', function() {
             roll: scope.model.woundTrigger.roll,
             mortals: scope.model.woundTrigger.mortals,
             d: scope.model.woundTrigger.d,
-            ap: scope.model.hitTrigger.ap}
+            ap: scope.model.woundTrigger.ap}
         } else {
           woundTrigger = {
             roll: 0,
@@ -163,12 +163,27 @@ app.directive('userInputs', function() {
           mWoundTrigger = woundTrigger.roll+woundMod
         } 
         //
-        var roundWounds = []
+        var roundWound = []
         var roundWoundRerolls = []
         var roundWoundTriggers = []
         var woundChances = []
+        var mWoundChances = []
         var woundTriggersTotal = []
-        var woundsTotal = []
+        var woundTotal = []
+        //chances to fail save
+        var fail = 0
+        var tFail = 0
+        if (1-(save+ap) > 1) {
+          fail = 1
+        } else {
+          fail = 1-(save + ap)
+        }
+        if (1-(save + woundTrigger.ap) > 1) {
+          tFail = 1
+        } else {
+          tFail = 1-(save + woundTrigger.ap)
+        }
+        //
         var unsavedTriggers = []
         var unsavedTotal = []
         var regDamage = []
@@ -178,9 +193,9 @@ app.directive('userInputs', function() {
         //iterate over T3..T8
         for (var i=0;i<6;i++) {
           //values per round for T3..T8
-          roundWounds.push([0,0,0,0])
-          roundWoundRerolls.push([0,0])
-          roundWoundTriggers.push([0,0,0,0])
+          roundWound.push([0,0])
+          roundWoundRerolls.push(0)
+          roundWoundTriggers.push([0,0])
           //calculate wound chances for T3..T8
           if (scope.model.strength == i+3) {
               woundChances[i] = 3/6
@@ -193,36 +208,82 @@ app.directive('userInputs', function() {
             } else if (scope.model.strength > i+3) {
               woundChances[i] = 4/6
             }
-            //calulcate modified wound chances for T3..T8
-
-            //round 1 wounds for T3..T8
-
-            //round 1 triggers for T3..T8
-
-            //round 2 rolls for T3..T8
-
-            //round 2 wounds for T3..T8
-
-            //round 2 triggers for T3..T8
+          if ((woundChances[i] + woundMod) > 5/6) {
+            mWoundChances[i] = 5/6
+          } else {
+            mWoundChances[i] = woundChances[i] + woundMod
+          }
+          //round 1 wounds for T3..T8
+          if (woundRerolls.failed && woundMod >= 0) {
+            roundWound[i][0] = hitTotal*woundChances[i]
+          } else {
+            roundWound[i][0] = hitTotal*mWoundChances[i]
+          }          
+          //round 1 triggers for T3..T8
+          if (woundChances[i] < mWoundTrigger && woundRerolls.failed) {
+            roundWoundTriggers[i][0] = woundTrigger.roll * hitTotal
+          } else {
+            roundWoundTriggers[i][0] = mWoundTrigger * hitTotal
+          }
+          //round 2 rolls for T3..T8
+          if (woundRerolls.failed) {
+            roundWoundRerolls[i] = hitTotal * woundChances[i] 
+          } else if (woundRerolls.ones) {
+            roundWoundRerolls[i] = (1/6) * hitTotal
+          } else {
+            roundWoundRerolls[i] = 0
+          }
+          //round 2 wounds for T3..T8
+          roundWound[i][1] = mWoundChances[i] * roundWoundRerolls[i]
+          //round 2 triggers for T3..T8
+          roundWoundTriggers[i][1] = mWoundTrigger * roundWoundRerolls[i] 
+          //total triggers for T3..T8
+          woundTriggersTotal[i] = roundWoundTriggers[i][0] + roundWoundTriggers[i][1] 
+          //total wounds for T3..T8
+          woundTotal[i] = roundWound[i][0] + roundWound[i][1] 
+          //unsaved from triggers for T3..T8
+          if (woundTrigger.ap < 0) {
+            unsavedTriggers[i] = woundTriggersTotal[i] * tFail
+          } else {
+            unsavedTriggers[i] = woundTriggersTotal[i] * fail
+          }          
+          //unsaved total for T3..T8
+          unsavedTotal[i] = unsavedTriggers[i]+((woundTotal[i] - woundTriggersTotal[i]) * fail) 
+          //regular damage for T3..T8 
+          if (woundTrigger.d > 0) {
+            regDamage[i] = (unsavedTriggers[i] * woundTrigger.d) + ((unsavedTotal[i] - unsavedTriggers[i]) * d) 
+          } else {
+            regDamage[i] = unsavedTotal[i] * d
+          }
+          //mortals for T3..T8
+          mortals[i] = (hitTriggersTotal * hitTrigger.mortals) + (woundTriggersTotal[i] * woundTrigger.mortals)
+          //total damage for T3..T8
+          damage[i] = regDamage[i] + mortals[i]
+          //dpp for T3..T8
+          dpp[i] = damage[i]/points
 
 //BASIC OLD
-            //calculate wounds for T3..T8
-            woundsTotal[i] = woundChances[i]*hitsTotal
-            //calculate unsaved wounds for T3..T8
-            unsavedTotal[i] = woundsTotal[i]*(1-(save + ap))
-            //calculate damage for T3..T8
-            damage[i] = unsavedTotal[i]*d
-//BASIC OLD
+            // //calculate unsaved wounds for T3..T8
+            // unsavedTotal[i] = woundTotal[i] * (1-(save + ap))
+            // //calculate damage for T3..T8
+            // damage[i] = unsavedTotal[i] * d
+//BASIC OLD     
 
-
-            //calculate dpp for T3..T8
-            dpp[i] = damage[i]/points        
           }
 
         //show calculations in html
+        scope.model.roundWound = roundWound
+        scope.model.roundWoundTriggers = roundWoundTriggers
+        scope.model.roundWoundRerolls = roundWoundRerolls
+        scope.model.woundTriggersTotal = woundTriggersTotal
+        scope.model.woundTotal = woundTotal
+
+        scope.model.unsavedTriggers = unsavedTriggers
+        scope.model.unsavedTotal = unsavedTotal
+        scope.model.regDamage = regDamage
+        scope.model.mortals = mortals
         scope.model.damage = damage
         scope.model.dpp = dpp
-
       };
 
       // initial run
