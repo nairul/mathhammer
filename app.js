@@ -4,7 +4,7 @@ window.app = angular
 .controller("ModelController", ['$scope', function ControllerFunction($scope) {
 
 
-  // array of all models so I can access specific models later.
+  // array of all models
   $scope.models = [];
 
   var colorPallet = [
@@ -19,7 +19,7 @@ window.app = angular
     '#d2f53c',
     '#fabebe'
   ];
-
+  //graph
   function generateDataSet() {
     return  $scope.models.map(function(model, index) {
         return {
@@ -58,15 +58,16 @@ window.app = angular
   $scope.addModel = function() {
 
     var newModel = {
+      //basic
       name: 'Model' + ' ' + ($scope.models.length+1),
       attacks: 6,
-      bs: 0.5,
+      skill: 0.5,
       strength: 4,
       save: 0.5,
       ap: 0,
       d: 1,
       points: 10,
-      
+      //advanced
       rerolls: {
         hits: {
           ones: false,
@@ -77,11 +78,11 @@ window.app = angular
           failed: false,
         }
       },
-      
+
       hitMod: 0,
       hitTrigger: {
         trigger: false,
-        roll: 0,
+        roll: 0.1666666666666666666666666,
         attacks:0,
         hits:0,
         mortals:0},
@@ -91,16 +92,26 @@ window.app = angular
         trigger: false,
         roll: 0,
         mortals:0,
-        damage:0,
+        d:0,
         ap:-2},
 
       autoWound: {
         auto: false,
         roll: 0, 
       },
-
+      //hit calculations
+      roundHits: [0,0,0,0],
+      roundHitTriggers: [0,0,0,0],
+      roundHitRerolls: [0,0],
+      bonusAttacks: 0,
+      hitTriggersTotal: 0,
+      hitsTotal: 0,
+      //wound calculations
+      //unsaved calculations
+      //results
       damage: [],
       dpp: [],
+      //color
       color: colorPallet[$scope.models.length]
     };
 
