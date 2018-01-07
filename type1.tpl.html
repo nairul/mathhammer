@@ -1,34 +1,33 @@
 <div>
-<table style="width:100%">
-  <tr>
-    <th>{{model.name}}</th>
-    <th>T3</th>
-    <th>T4</th>     
-    <th>T5</th>
-    <th>T6</th>
-    <th>T7</th> 
-    <th>T8</th>
-  </tr>
-  <tr>
-    <td>dmg</td>
-    <td>{{model.damage[0]}}</td>
-    <td>{{model.damage[1]}}</td>
-    <td>{{model.damage[2]}}</td>
-    <td>{{model.damage[3]}}</td>
-    <td>{{model.damage[4]}}</td>
-    <td>{{model.damage[5]}}</td>
-  </tr>
-  <tr>
-    <td>dpp</td>
-    <td>{{model.dpp[0]}}</td>
-    <td>{{model.dpp[1]}}</td>
-    <td>{{model.dpp[2]}}</td>
-    <td>{{model.dpp[3]}}</td>
-    <td>{{model.dpp[4]}}</td>
-    <td>{{model.dpp[5]}}</td>
-  </tr>
-
-</table>
+    <table style="width:100%">
+      <tr>
+        <th>{{model.name}}</th>
+        <th>T3</th>
+        <th>T4</th>     
+        <th>T5</th>
+        <th>T6</th>
+        <th>T7</th> 
+        <th>T8</th>
+      </tr>
+      <tr>
+        <td>dmg</td>
+        <td>{{model.damage[0]}}</td>
+        <td>{{model.damage[1]}}</td>
+        <td>{{model.damage[2]}}</td>
+        <td>{{model.damage[3]}}</td>
+        <td>{{model.damage[4]}}</td>
+        <td>{{model.damage[5]}}</td>
+      </tr>
+      <tr>
+        <td>dpp</td>
+        <td>{{model.dpp[0]}}</td>
+        <td>{{model.dpp[1]}}</td>
+        <td>{{model.dpp[2]}}</td>
+        <td>{{model.dpp[3]}}</td>
+        <td>{{model.dpp[4]}}</td>
+        <td>{{model.dpp[5]}}</td>
+      </tr>
+    </table>
 
 <div style="display:flex;flex-direction:row">
     <form>
@@ -72,5 +71,4 @@
         <input type="checkbox" ng-model="model.autoWound.auto" />Auto-Wound on: <input type="number" ng-model="model.autoWound.roll" /><br>
     </form>
 </div>
-    <br>
 </div>
