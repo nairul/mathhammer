@@ -3,6 +3,9 @@ window.app = angular
 
 .controller("ModelController", ['$scope', function ControllerFunction($scope) {
 
+  $scope.type = {
+    isCombi: false
+  };
 
   // array of all models
   $scope.models = [];
@@ -57,8 +60,13 @@ window.app = angular
   //add new model object to array of all models
   $scope.addModel = function() {
 
+    var newCombiModel = {
+      isCombi: true
+    };
+
     var newModel = {
       //basic
+      isCombi: false,
       name: 'Model' + ' ' + ($scope.models.length+1),
       attacks: 6,
       skill: 0.5,
@@ -82,7 +90,7 @@ window.app = angular
       hitMod: 0,
       hitTrigger: {
         trigger: false,
-        roll: 0.1666666666666666666666666,
+        roll: (1/6),
         attacks: 0,
         hit: 0,
         mortals: 0},
@@ -90,7 +98,7 @@ window.app = angular
       woundMod: 0,
       woundTrigger: {
         trigger: false,
-        roll: 0.1666666666666666666666666,
+        roll: (1/6),
         mortals: 0,
         d: 0,
         ap: 0
@@ -98,7 +106,7 @@ window.app = angular
 
       autoWound: {
         auto: false,
-        roll: 0, 
+        roll: 0,
       },
       //hit calculations
       roundHit: [0,0,0,0],
@@ -112,12 +120,12 @@ window.app = angular
       roundWoundTriggers: [],
       roundWoundRerolls: [],
       woundTriggersTotal : [],
-      woundTotal: [],      
+      woundTotal: [],
       //unsaved calculations
       unsavedTriggers: [],
       unsavedTotal: [],
       regDamage: [],
-      mortals : [],      
+      mortals : [],
       //results
       damage: [],
       dpp: [],
@@ -125,7 +133,8 @@ window.app = angular
       color: colorPallet[$scope.models.length]
     };
 
-    $scope.models.push(Object.assign({}, newModel))
+    $scope.models.push(Object.assign({},
+      $scope.type.isCombi ? newCombiModel : newModel));
   };
 
 }]);
