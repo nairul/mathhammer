@@ -66,6 +66,39 @@ window.app = angular
       ap: 0,
       d: 1,
       points: 10,
+      
+      rerolls: {
+        hits: {
+          ones: false,
+          failed: false,
+        },
+        wounds: {
+          ones: false,
+          failed: false,
+        }
+      },
+      
+      hitMod: 0,
+      hitTrigger: {
+        trigger: false,
+        roll: 0,
+        attacks:0,
+        hits:0,
+        mortals:0},
+
+      woundMod: 0,
+      woundTrigger: {
+        trigger: false,
+        roll: 0,
+        mortals:0,
+        damage:0,
+        ap:-2},
+
+      autoWound: {
+        auto: false,
+        roll: 0, 
+      },
+
       damage: [],
       dpp: [],
       color: colorPallet[$scope.models.length]
