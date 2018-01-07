@@ -14,10 +14,22 @@
     </style>
   </head>
   <body ng-controller="ModelController">
-      <button ng-click="addModel()">Add Model</button>
-    </div>
+    <form >
+      <label>
+        <input type="radio" ng-model="type.isCombi" ng-value="false">
+        Regular
+      </label>
+      <br>
+      <label>
+        <input type="radio" ng-model="type.isCombi" ng-value="true">
+        Combi
+      </label>
+    </form>
+
+    <button ng-click="addModel()">Add Model</button>
     <div ng-repeat="model in models">
-      <user-inputs model="model" ></user-inputs>
+      <user-inputs model="model" ng-if="!model.isCombi"></user-inputs>
+      <div ng-if="model.isCombi">Vincent's New Combi Div</div>
       {{model}}
     </div>
 
