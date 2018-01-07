@@ -30,7 +30,7 @@
 
 </table>
 
-
+<div style="display:flex;flex-direction:row">
     <form>
         Name: <input type="text" ng-model="model.name" /></br>
 
@@ -48,5 +48,29 @@
 
         Points: <input type="number" ng-model="model.points" /></br>
     </form>
+    <form>
+        <input type="checkbox" ng-model="model.rerolls.hits.ones" />Reroll Hit rolls of 1:</br>
+        <input type="checkbox" ng-model="model.rerolls.hits.failed" />Reroll failed Hit Rolls: <br>
+        <input type="checkbox" ng-model="model.rerolls.wounds.ones" />Reroll Wound rolls of 1: <br> 
+        <input type="checkbox" ng-model="model.rerolls.wounds.failed" />Reroll failed Wound Rolls: <br> 
+    </form>
+    <form>
+        +- to Hit rolls: <input type="number" ng-model="model.hitMod" /></br><br>
+        <input type="checkbox" ng-model="model.hitTrigger.trigger" />On Hit rolls of: <input type="number" ng-model="model.hitTrigger.roll" /></br>
+        Extra attack(s): <input type="number" ng-model="model.hitTrigger.attacks" /></br>
+        Extra hit(s): <input type="number" ng-model="model.hitTrigger.hits"/></br>
+        Mortal's instead: <input type="number" ng-model="model.hitTrigger.mortals"/></br>
+    </form>
+    <form>
+        +- to Wound rolls: <input type="number" ng-model="model.woundMod" /></br><br>
+        <input type="checkbox" ng-model="model.woundTrigger.trigger"/>On Wound rolls of: <input type="number" ng-model="model.woundTrigger.roll" /></br>
+        Extra mortal(s): <input type="number" ng-model="model.woundTrigger.mortals" /></br>
+        Damage instead: <input type="number" ng-model="model.woundTrigger.damage" /></br>
+        AP instead: <input type="number" ng-model="model.woundTrigger.ap" /></br>
+    </form>
+    <form>
+        <input type="checkbox" ng-model="model.autoWound.auto" />Auto-Wound on: <input type="number" ng-model="model.autoWound.roll" /><br>
+    </form>
+</div>
     <br>
 </div>
