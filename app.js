@@ -69,11 +69,11 @@ window.app = angular
       points: 10,
       //advanced
       rerolls: {
-        hits: {
+        hit: {
           ones: false,
           failed: false,
         },
-        wounds: {
+        wound: {
           ones: false,
           failed: false,
         }
@@ -83,31 +83,41 @@ window.app = angular
       hitTrigger: {
         trigger: false,
         roll: 0.1666666666666666666666666,
-        attacks:0,
-        hits:0,
-        mortals:0},
+        attacks: 0,
+        hit: 0,
+        mortals: 0},
 
       woundMod: 0,
       woundTrigger: {
         trigger: false,
-        roll: 0,
-        mortals:0,
-        d:0,
-        ap:-2},
+        roll: 0.1666666666666666666666666,
+        mortals: 0,
+        d: 0,
+        ap: 0
+      },
 
       autoWound: {
         auto: false,
         roll: 0, 
       },
       //hit calculations
-      roundHits: [0,0,0,0],
+      roundHit: [0,0,0,0],
       roundHitTriggers: [0,0,0,0],
       roundHitRerolls: [0,0],
       bonusAttacks: 0,
       hitTriggersTotal: 0,
-      hitsTotal: 0,
+      hitTotal: 0,
       //wound calculations
+      roundWound: [],
+      roundWoundTriggers: [],
+      roundWoundRerolls: [],
+      woundTriggersTotal : [],
+      woundTotal: [],      
       //unsaved calculations
+      unsavedTriggers: [],
+      unsavedTotal: [],
+      regDamage: [],
+      mortals : [],      
       //results
       damage: [],
       dpp: [],
