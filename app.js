@@ -59,9 +59,13 @@ window.app = angular
 
   //add new model object to array of all models
   $scope.addModel = function() {
-
     var newCombiModel = {
-      isCombi: true
+      isCombi: true,
+      combi: [],
+      name: 'Model' + ' ' + ($scope.models.length+1),
+      damage: [],
+      dpp: [],
+      color: colorPallet[$scope.models.length]
     };
 
     var newModel = {
