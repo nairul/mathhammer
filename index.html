@@ -18,11 +18,12 @@
     </div>
     <div ng-repeat="model in models">
       <user-inputs model="model" ></user-inputs>
+      {{model}}
     </div>
 
     <script src="user-inputs.directive.js"></script>
     <!-- show model array for debugging -->
-    <div ng-repeat="model in models">{{model}}</div>
+    <!-- <div ng-repeat="model in models">{{model}}</div> -->
 
     <!-- charts with vanilla chart.js -->
 
