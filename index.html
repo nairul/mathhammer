@@ -29,49 +29,11 @@
     <button ng-click="addModel()">Add Model</button>
     <div ng-repeat="model in models">
       <type1 model="model" ng-if="!model.isCombi"></type1>
-      <div ng-if="model.isCombi">
-        <table style="width:100%">
-          <tr>
-            <th>{{model.name}}</th>
-            <th>T3</th>
-            <th>T4</th>     
-            <th>T5</th>
-            <th>T6</th>
-            <th>T7</th> 
-            <th>T8</th>
-          </tr>
-          <tr>
-            <td>dmg</td>
-            <td>{{model.damage[0]}}</td>
-            <td>{{model.damage[1]}}</td>
-            <td>{{model.damage[2]}}</td>
-            <td>{{model.damage[3]}}</td>
-            <td>{{model.damage[4]}}</td>
-            <td>{{model.damage[5]}}</td>
-          </tr>
-          <tr>
-            <td>dpp</td>
-            <td>{{model.dpp[0]}}</td>
-            <td>{{model.dpp[1]}}</td>
-            <td>{{model.dpp[2]}}</td>
-            <td>{{model.dpp[3]}}</td>
-            <td>{{model.dpp[4]}}</td>
-            <td>{{model.dpp[5]}}</td>
-          </tr>
-        </table>        
-        <form>
-          <select ng-model="model.combi" multiple>
-            <option ng-repeat="model in models" ng-if="!model.isCombi">{{model.name}}</option>
-          </select><br />
-          Name: <input type="text" ng-model="model.name" /><br />
-          Points: <input type="number" ng-model="model.points" />
-        </form>
-      </div>
-      {{model}}
+      <type2 ng-if="model.isCombi" model="model" models="models"></type2>
+    {{model}}
     </div>
-
     <script src="type1.directive.js"></script>
-   <!--  <script src="type2.directive.js"></script> -->
+    <script src="type2.directive.js"></script>
 
     <div style="border:1px solid black;position:fixed;bottom:2%;right:2%">
     <canvas id="damage-chart"></canvas>

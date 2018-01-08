@@ -288,7 +288,6 @@ app.directive('type1', function() {
 
       // initial run
       calculate();
-
       //
       scope.$watch("model", calculate, true);
 

@@ -61,8 +61,9 @@ window.app = angular
   $scope.addModel = function() {
     var newCombiModel = {
       isCombi: true,
-      combi: [],
+      selection: [],
       name: 'Model' + ' ' + ($scope.models.length+1),
+      points: 10,
       damage: [],
       dpp: [],
       color: colorPallet[$scope.models.length]
