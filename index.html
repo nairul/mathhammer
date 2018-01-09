@@ -28,7 +28,7 @@
 
     <button ng-click="addModel()">Add Model</button>
     <div ng-repeat="model in models">
-      <type1 model="model" ng-if="!model.isCombi"></type1>
+      <type1 model="model" rolls="rolls" ng-if="!model.isCombi"></type1>
       <type2 ng-if="model.isCombi" model="model" models="models"></type2>
     {{model}}
     </div>
