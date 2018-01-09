@@ -36,7 +36,22 @@ window.app = angular
     {name:'6+', value: sixPlus},
     {name:'7+', value: 0}
   ]
-  //
+  // $scope.mods = [
+  //   {name:'1', value: twoPlus},
+  //   {name:'-1', value: twoPlus},
+  //   {name:'0', value: twoPlus},
+  //   {name:'1', value: twoPlus},
+  //   {name:'2', value: threePlus},
+  //   {name:'3', value: fourPlus},
+  //   {name:'4', value: fivePlus},
+  //   {name:'5', value: sixPlus},
+  // ]  
+  // {name:'D3', value: 2},
+  // {name:'2D3', value: 4},
+  // {name:'D6', value: 3.5},
+  // {name:'2D6', value: 7},
+  // {name:'3D6', value: 2}
+
   //add new model object to array of all models
   $scope.addModel = function() {
     var newCombiModel = {
@@ -56,7 +71,7 @@ window.app = angular
       attacks: 6,
       skill: $scope.rolls[1],
       strength: 4,
-      save: 0.5,
+      save: $scope.rolls[1],
       ap: 0,
       d: 1,
       points: 10,
@@ -75,7 +90,7 @@ window.app = angular
       hitMod: 0,
       hitTrigger: {
         trigger: false,
-        roll: (1/6),
+        roll: $scope.rolls[4],
         attacks: 0,
         hit: 0,
         mortals: 0},
@@ -83,7 +98,7 @@ window.app = angular
       woundMod: 0,
       woundTrigger: {
         trigger: false,
-        roll: (1/6),
+        roll: $scope.rolls[4],
         mortals: 0,
         d: 0,
         ap: 0
@@ -91,7 +106,7 @@ window.app = angular
 
       autoWound: {
         auto: false,
-        roll: 0,
+        roll: $scope.rolls[2],
       },
       //hit calculations
       roundHit: [0,0,0,0],
