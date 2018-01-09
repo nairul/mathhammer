@@ -1,1 +1,1 @@
-A tool to calculate damage output using advanced dice probabilities for the Warhammer 40,000 tabletop game.
+A tool to calculate model damage output and effeciency for the Warhammer 40,000 tabletop game.

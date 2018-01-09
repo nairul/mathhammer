@@ -35,7 +35,15 @@
 
         Attacks: <input type="number" ng-model="model.attacks" /></br>
 
-        BS/WS: <input type="number" ng-model="model.skill" /></br>
+        <!-- BS/WS: <input type="number" ng-model="model.skill" /></br> -->
+        Skill: <select ng-model="model.skill" value="2" ng-options="roll.name for roll in rolls"><!-- <select ng-model="model.skill"> -->
+            <!-- <select ng-options="option.name for option in options" ng-model="model.skill"> -->
+            <!-- <option value=''>skill</option> -->
+            <!-- <option ng-repeat="option in options" value={{option.value}}>{{option.name}}</option> -->
+<!--             <option value=0.16>2+</option>
+            <option value=0.33>3+</option>
+            <option value=0.5 ng-selected="mySel">4+</option> -->
+        </select></br>
 
         Strength: <input type="number" ng-model="model.strength" /></br>
 

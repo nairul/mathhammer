@@ -3,17 +3,38 @@ app.directive('type1', function() {
     restrict: 'E',
     templateUrl: 'type1.tpl.html',
     scope: {
-      model: "="
+      model: "=",
+      rolls: "="
     },
     link: function(scope, elem, attr) {
+      //set exact probabilities
+      // var twoPlus = 5/6
+      // var threePlus = 4/6
+      // var fourPlus = 3/6
+      // var fivePlus = 2/6
+      // var sixPlus = 1/6
+      // //set default selections  
+      // scope.rolls = [
+      // {name:'2+', value: twoPlus},
+      // {name:'3+', value: threePlus},
+      // {name:'4+', value: fourPlus},
+      // {name:'5+', value: fivePlus},
+      // {name:'6+', value: sixPlus},
+      // {name:'7+', value: 0}
+      // ]
+      
+      scope.model.skill = scope.rolls[1]
+
+
       function calculate() {
         //for .reduce() method
         function add(a, b) {
           return a + b;
         }
+
         //CALCULATE HITS
         //grab input
-        var skill = scope.model.skill
+        var skill = scope.model.skill.value
         var attacks = scope.model.attacks
         var hitRerolls = {
           ones: scope.model.rerolls.hit.ones,
@@ -61,7 +82,7 @@ app.directive('type1', function() {
           roundHit[0] = attacks*mSkill
         }
         //round 1 triggers
-        if (skill<mHitTrigger && hitReroll.failed) {
+        if (skill<mHitTrigger && hitRerolls.failed) {
           roundHitTriggers[0] = hitTrigger.roll*attacks
         } else {
           roundHitTriggers[0] = mHitTrigger*attacks
@@ -85,7 +106,7 @@ app.directive('type1', function() {
           roundHit[2] = bonusAttacks*mSkill
         }
         //round 3 triggers
-        if (skill<mHitTrigger && hitReroll.failed) {
+        if (skill<mHitTrigger && hitRerolls.failed) {
           roundHitTriggers[2] = hitTrigger.roll*bonusAttacks
         } else {
           roundHitTriggers[2] = mHitTrigger*bonusAttacks

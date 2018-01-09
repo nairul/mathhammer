@@ -2,14 +2,13 @@ window.app = angular
 .module("mathhammer", [])
 
 .controller("ModelController", ['$scope', function ControllerFunction($scope) {
-
+  //default type
   $scope.type = {
     isCombi: false
   };
-
-  // array of all models
+  //array of all models
   $scope.models = [];
-
+  //array of colors
   var colorPallet = [
     '#e6194b',
     '#3cb44b',
@@ -22,41 +21,22 @@ window.app = angular
     '#d2f53c',
     '#fabebe'
   ];
-  //graph
-  function generateDataSet() {
-    return  $scope.models.map(function(model, index) {
-        return {
-          label: model.name,
-          backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderColor: model.color,
-          data: model.damage
-        };
-      })
-  }
-
-  var damageChart = new Chart(document.getElementById("damage-chart").getContext('2d'), {
-    type: 'line',
-    data: {
-      labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
-      datasets: generateDataSet()
-    },
-    maintainAspectRatio: false,
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      elements: {
-            line: {
-                tension: 0, // disables bezier curves
-            }
-        }
-    }
-  });
-
-  $scope.$watch('models', function updateGraph() {
-    damageChart.data.datasets = generateDataSet();
-    damageChart.update();
-  }, true);
-
+  //exact roll probabilities
+  var twoPlus = 5/6
+  var threePlus = 4/6
+  var fourPlus = 3/6
+  var fivePlus = 2/6
+  var sixPlus = 1/6
+  //roll options
+  $scope.rolls = [
+    {name:'2+', value: twoPlus},
+    {name:'3+', value: threePlus},
+    {name:'4+', value: fourPlus},
+    {name:'5+', value: fivePlus},
+    {name:'6+', value: sixPlus},
+    {name:'7+', value: 0}
+  ]
+  //
   //add new model object to array of all models
   $scope.addModel = function() {
     var newCombiModel = {
@@ -70,17 +50,17 @@ window.app = angular
     };
 
     var newModel = {
-      //basic
+      //basic default
       isCombi: false,
       name: 'Model' + ' ' + ($scope.models.length+1),
       attacks: 6,
-      skill: 0.5,
+      skill: $scope.rolls[1],
       strength: 4,
       save: 0.5,
       ap: 0,
       d: 1,
       points: 10,
-      //advanced
+      //advanced default
       rerolls: {
         hit: {
           ones: false,
@@ -140,6 +120,42 @@ window.app = angular
 
     $scope.models.push(Object.assign({},
       $scope.type.isCombi ? newCombiModel : newModel));
+
+    //graph
+    function generateDataSet() {
+      return  $scope.models.map(function(model, index) {
+          return {
+            label: model.name,
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            borderColor: model.color,
+            data: model.damage
+          };
+        })
+    }
+
+    var damageChart = new Chart(document.getElementById("damage-chart").getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
+        datasets: generateDataSet()
+      },
+      maintainAspectRatio: false,
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        elements: {
+              line: {
+                  tension: 0, // disables bezier curves
+              }
+          }
+      }
+    });
+
+    $scope.$watch('models', function updateGraph() {
+      damageChart.data.datasets = generateDataSet();
+      damageChart.update();
+    }, true);
+
   };
 
 }]);
