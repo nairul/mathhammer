@@ -56,7 +56,9 @@
 
         Damage: <input type="number" ng-model="model.d" /></br>
 
-        Points: <input type="number" ng-model="model.points" /></br>
+        Points: <input type="number" ng-model="model.points" />
+        <button ng-click="deleteModel(model)">Delete Model</button>
+    </br>
     </form>
     <form>
         <input type="checkbox" ng-model="model.rerolls.hits.ones" />Reroll Hit rolls of 1</br>

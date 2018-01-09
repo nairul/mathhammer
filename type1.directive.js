@@ -4,6 +4,7 @@ app.directive('type1', function() {
     templateUrl: 'type1.tpl.html',
     scope: {
       model: "=",
+      models: "=",
       rolls: "="
     },
     link: function(scope, elem, attr) {
@@ -26,12 +27,15 @@ app.directive('type1', function() {
       // scope.model.skill = scope.rolls[1]
       // scope.model.save = scope.rolls[1]
 
-
       function calculate() {
         //for .reduce() method
         function add(a, b) {
           return a + b;
         }
+        scope.deleteModel = function(model) {
+          var index = scope.models.indexOf(model)
+          scope.models.splice(index, 1)  
+        } 
 
         //CALCULATE HITS
         //grab input
