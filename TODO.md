@@ -16,9 +16,9 @@
 
   ~~7) Add model-grouping feature~~
 
-  8) Interpolation
+  ~~8) Interpolation~~
 
-  9) Delete model
+  ~~9) Delete model~~
 
   10) Finalize Wireframe. (Header, Footer, Model states, Horizontal Scrollbars on Models)
 

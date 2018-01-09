@@ -8,6 +8,10 @@ app.directive('type2', function() {
     },
     link: function(scope, elem, attr) {
       function calculate() {
+        scope.deleteModel = function(model) {
+          var index = scope.models.indexOf(model)
+          scope.models.splice(index, 1)  
+        }
         function add(a, b) {
           return a + b;
         }
