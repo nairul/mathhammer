@@ -36,9 +36,10 @@
 
 1) Users may copy/paste models
 2) Users may choose model color
-2) Users may choose type of graph display (line, bar, other?)
-3) Display best time to use reroll strategem (failed hit, failed wound, low damage) & added damage. Ask user "Always/Opportunisticly use a reroll strategem for this model?". Display chance of strategem use.      
-4) Users may select Psychic, Shooting, Fight, (multiple selections allowed) or None (default) for model.type. "Psychic" option adds/replaces model HTML with Psychic test inputs (WC, Spell effect, Rerolls, strategems). "Shooting" option adds Rapid-Fire input. 
-5) "Split into seperate model" button per each model.type   
-6) Damage-by-phase results (with each % of total damage). Graph and/or text form ("Your army outputs X% dmg in Psychic, Y% dmg in Shooting, Z% dmg in fight.")
-7) Damage-by-turn results. Users may select each model.type to have Battle-Round variants (BR 1,2,3..7). Each variant contains inputs unique to that Battle-Round, or users may select variant(s) with "No Attacks". "Fight" model.type adds charge inputs (distance, rerolls, modifiers, strategems). Displays chance of charge. Asks user "scale results down by chance of charge?"
+3) Users may change default inputs 
+4) Users may choose type of graph display (line, bar, other?)
+5) Display best time to use reroll strategem (failed hit, failed wound, low damage) & added damage. Ask user "Always/Opportunisticly use a reroll strategem for this model?". Display chance of strategem use.      
+6) Users may select Psychic, Shooting, Fight, (multiple selections allowed) or None (default) for model.type. "Psychic" option adds/replaces model HTML with Psychic test inputs (WC, Spell effect, Rerolls, strategems). "Shooting" option adds Rapid-Fire input. 
+7) "Split into seperate model" button per each model.type   
+8) Damage-by-phase results (with each % of total damage). Graph and/or text form ("Your army outputs X% dmg in Psychic, Y% dmg in Shooting, Z% dmg in fight.")
+9) Damage-by-turn results. Users may select each model.type to have Battle-Round variants (BR 1,2,3..7). Each variant contains inputs unique to that Battle-Round, or users may select variant(s) with "No Attacks". "Fight" model.type adds charge inputs (distance, rerolls, modifiers, strategems). Displays chance of charge. Asks user "scale results down by chance of charge?"

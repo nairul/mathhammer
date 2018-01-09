@@ -23,7 +23,8 @@ app.directive('type1', function() {
       // {name:'7+', value: 0}
       // ]
       
-      scope.model.skill = scope.rolls[1]
+      // scope.model.skill = scope.rolls[1]
+      // scope.model.save = scope.rolls[1]
 
 
       function calculate() {
@@ -40,11 +41,11 @@ app.directive('type1', function() {
           ones: scope.model.rerolls.hit.ones,
           failed: scope.model.rerolls.hit.failed
         }
-        var hitMod = scope.model.hitMod
+        var hitMod = scope.model.hitMod/6
         var hitTrigger = {}
         if (scope.model.hitTrigger.trigger) {
           hitTrigger = {
-            roll: scope.model.hitTrigger.roll,
+            roll: scope.model.hitTrigger.roll.value,
             attacks: scope.model.hitTrigger.attacks,
             hit: scope.model.hitTrigger.hit,
             mortals: scope.model.hitTrigger.mortals}
@@ -68,7 +69,7 @@ app.directive('type1', function() {
         
           if (hitTrigger.roll+hitMod>5/6) {
             mHitTrigger = 5/6
-          } else if (hitTrigger.roll>0) {
+          } else if (hitTrigger.roll>=0) {
             mHitTrigger = hitTrigger.roll+hitMod
           }      
         //values per round 
@@ -139,23 +140,23 @@ app.directive('type1', function() {
         scope.model.hitTotal = hitTotal
         //CALCULATE WOUNDS/UNSAVED/DAMAGE/DPP 
         //grab input
-        var save = scope.model.save
+        var save = scope.model.save.value
         var strength = scope.model.strength
-        var ap = scope.model.ap
+        var ap = scope.model.ap/6
         var d = scope.model.d
         var points = scope.model.points
         var woundRerolls = {
           ones: scope.model.rerolls.wound.ones,
           failed: scope.model.rerolls.wound.failed
         }
-        var woundMod = scope.model.woundMod
+        var woundMod = scope.model.woundMod/6
         var woundTrigger = {}
         if (scope.model.woundTrigger.trigger) {
           woundTrigger = {
-            roll: scope.model.woundTrigger.roll,
+            roll: scope.model.woundTrigger.roll.value,
             mortals: scope.model.woundTrigger.mortals,
             d: scope.model.woundTrigger.d,
-            ap: scope.model.woundTrigger.ap}
+            ap: scope.model.woundTrigger.ap/6}
         } else {
           woundTrigger = {
             roll: 0,
@@ -168,7 +169,7 @@ app.directive('type1', function() {
         if (scope.model.autoWound.auto) {
           autoWound = {
             auto: true,
-            roll: scope.model.autoWound.roll
+            roll: scope.model.autoWound.roll.value
           }
         } else {
           autoWound = {
@@ -180,7 +181,7 @@ app.directive('type1', function() {
         var mWoundTrigger = 0
         if (woundTrigger.roll+woundMod>5/6) {
           mWoundTrigger = 5/6
-        } else if (woundTrigger.roll>0) {
+        } else if (woundTrigger.roll>=0) {
           mWoundTrigger = woundTrigger.roll+woundMod
         } 
         //
@@ -217,18 +218,21 @@ app.directive('type1', function() {
           roundWound.push([0,0])
           roundWoundRerolls.push(0)
           roundWoundTriggers.push([0,0])
-          //calculate wound chances for T3..T8
-          if (scope.model.strength == i+3) {
-              woundChances[i] = 3/6
+          //wound chances for T3..T8
+          if (autoWound.auto) {
+            woundChances[i] = autoWound.roll
+          } else if (scope.model.strength == i+3) {
+                woundChances[i] = 3/6
             } else if (scope.model.strength <= (i+3)/2) {
-              woundChances[i] = 1/6
-            } else if (scope.model.strength < i+3) {
-              woundChances[i] = 2/6
-            } else if (scope.model.strength >= (i+3)*2) {
-              woundChances[i] = 5/6
-            } else if (scope.model.strength > i+3) {
-              woundChances[i] = 4/6
-            }
+                woundChances[i] = 1/6
+              } else if (scope.model.strength < i+3) {
+                woundChances[i] = 2/6
+                } else if (scope.model.strength >= (i+3)*2) {
+                woundChances[i] = 5/6
+                  } else if (scope.model.strength > i+3) {
+                woundChances[i] = 4/6
+                    }
+          //modified wound chances for T3..T8
           if ((woundChances[i] + woundMod) > 5/6) {
             mWoundChances[i] = 5/6
           } else {
