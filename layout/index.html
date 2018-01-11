@@ -42,20 +42,20 @@ body {
     color: black;
 }
 
-/* Create three unequal columns that floats next to each other */
 .column {
     float: left;
     padding: 10px;
 }
 
-/* Left and right column */
-.column.side {
-    width: 25%;
+
+.column.left {
+    width: 50%;
+    border: 1px solid black;
 }
 
-/* Middle column */
-.column.middle {
-    width: 50%;
+.column.right {
+  width: 50%;
+  border: 1px solid black;
 }
 
 /* Clear floats after the columns */
@@ -63,6 +63,37 @@ body {
     content: "";
     display: table;
     clear: both;
+}
+
+.title {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.model {
+  border: 1px solid red;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.model span {
+  margin: 0;
+  padding: 0;
+}
+
+.model .input {
+  border: 1px solid black;
+  width: 10%;
+  margin: 10px;
+}
+
+input {
+  width: 100%;
+}
+
+.basic {
+  display: flex; 
+  flex-direction: row;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -77,7 +108,6 @@ body {
 
 <div class="header">
   <h1>Header</h1>
-  <p>Resize the browser window to see the responsive effect.</p>
 </div>
 
 <div class="topnav">
@@ -87,18 +117,42 @@ body {
 </div>
 
 <div class="row">
-  <div class="column side">
-    <h2>Side</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+  <div class="column left">
+    <div class="title"><h2>Models</h2></div>
+      <div class="model">
+        <span>Model A</span>
+        <div class="basic">
+          <div class="input">
+            <span>v. Save</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>BS/WS</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Attacks</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Strength</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Damage</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Points</span><br>
+            <input></input>
+          </div>
+        </div>
+      </div>
   </div>
-  <div class="column middle">
-    <h2>Main Content</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-  </div>
-  <div class="column side">
-    <h2>Side</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+  <div class="column right">
+    <div class="title"><h2>Results</h2></div>
+    <graph1></graph1>
+    <graph2></graph2>
   </div>
 </div>
   
