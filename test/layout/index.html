@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MathHammer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+
+.column.left {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.column.right {
+  width: 50%;
+  border: 1px solid black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.title {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.model {
+  border: 1px solid red;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.model span {
+  margin: 0;
+  padding: 0;
+}
+
+.model .input {
+  border: 1px solid black;
+  width: 10%;
+  margin: 10px;
+}
+
+.basic input {
+  width: 100%;
+}
+
+.basic {
+  display: flex; 
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+.advanced {
+  border: 1px solid black;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.rerolls {
+  border: 1px solid black;
+}
+
+.modifiers {
+  border: 1px solid black;
+}
+
+.misc {
+  border: 1px solid black;
+}
+
+.advanced li{
+    list-style:none;
+    
+}
+
+.advanced label,input{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column.left, .column.middle .column.right {
+        width: 100%;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Header</h1>
+</div>
+
+<div class="topnav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+<div class="row">
+  <div class="column left">
+    <div class="title"><h2>Models</h2></div>
+      <div class="model">
+        <h4>Model A</h4>
+
+        <div class="basic">
+          <div class="input">
+            <span>v. Save</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>BS/WS</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Attacks</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Strength</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Damage</span><br>
+            <input></input>
+          </div>
+          <div class="input">
+            <span>Points</span><br>
+            <input></input>
+          </div>
+        </div>
+
+        <div class="advanced" style="display: flex;flex-direction: row; justify-content: space-between">
+          <div class="rerolls">
+            <h4>Rerolls</h4>
+              <li>
+                  <input id="checkid" type="checkbox" value="test" />
+                  <label for="checkid" style="word-wrap:break-word; width:200px;">Reroll Hit rolls of 1</label>
+              </li>
+              <li>
+                  <input id="checkid2" type="checkbox" value="test" />
+                  <label for="checkid2" style="word-wrap:break-word;width:200px;">Reroll failed Hit rolls</label>
+              </li>
+              <li>
+                  <input id="checkid3" type="checkbox" value="test" />
+                  <label for="checkid3" style="word-wrap:break-word;width:200px;">Reroll Wound rolls of 1</label>
+              </li>
+              <li>
+                  <input id="checkid4" type="checkbox" value="test" />
+                  <label for="checkid4" style="word-wrap:break-word;width:200px;">Reroll failed Wound rolls</label>
+              </li>
+          </div>
+          <div class="modifiers">
+            <h4>Modifiers</h4>
+            <div style="display: flex;flex-direction: row;">
+              <div>Hits
+              </div>
+              <div>Wounds
+              </div>
+            </div>
+          </div>
+          <div class="misc">
+            <h4>Misc</h4>
+          </div>
+        </div>
+
+      </div>
+  </div>
+  <div class="column right">
+    <div class="title"><h2>Results</h2></div>
+    <graph1></graph1>
+    <graph2></graph2>
+  </div>
+</div>
+  
+</body>
+</html>

@@ -35,11 +35,12 @@
 # Feature Creep
 
 Top priority
-1) Users may copy/paste models
-2) Users may choose model color from list of unused colors
-3) Users may change default input values in Settings widget
-4) Users may save models for future import -- Browser? $UIRouter? Other?
-5) Users may import from predefined models (Space Marine, Ork Boy, Bolter, Shoota, etc.) 
+1) Users may show/hide advanced options
+2) Users may copy/paste models
+3) Users may choose model color from list of unused colors
+4) Users may change default input values in Settings widget
+5) Users may save models for future import -- Browser? $UIRouter? Other?
+6) Users may import from predefined models (Space Marine, Ork Boy, Bolter, Shoota, etc.) 
 
 Second priority
 1) Users may choose type of graph display (line, bar, other?) in Settings widget
