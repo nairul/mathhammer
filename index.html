@@ -30,7 +30,7 @@
     <div ng-repeat="model in models">
       <type1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></type1>
       <type2 ng-if="model.isCombi" model="model" models="models"></type2>
-    {{model}}
+    <!-- {{model}} -->
     </div>
     <script src="type1.directive.js"></script>
     <script src="type2.directive.js"></script>

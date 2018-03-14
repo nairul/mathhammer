@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Website Layout</title>
+<title>MathHammer</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -87,21 +87,55 @@ body {
   margin: 10px;
 }
 
-input {
+.basic input {
   width: 100%;
 }
 
 .basic {
   display: flex; 
   flex-direction: row;
+  border: 1px solid black;
+}
+
+.advanced {
+  border: 1px solid black;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.rerolls {
+  border: 1px solid black;
+}
+
+.modifiers {
+  border: 1px solid black;
+}
+
+.misc {
+  border: 1px solid black;
+}
+
+.advanced li{
+    list-style:none;
+    
+}
+
+.advanced label,input{
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
-    .column.side, .column.middle {
+    .column.left, .column.middle .column.right {
         width: 100%;
     }
 }
+
+
 </style>
 </head>
 <body>
@@ -120,7 +154,8 @@ input {
   <div class="column left">
     <div class="title"><h2>Models</h2></div>
       <div class="model">
-        <span>Model A</span>
+        <h4>Model A</h4>
+
         <div class="basic">
           <div class="input">
             <span>v. Save</span><br>
@@ -147,6 +182,41 @@ input {
             <input></input>
           </div>
         </div>
+
+        <div class="advanced" style="display: flex;flex-direction: row; justify-content: space-between">
+          <div class="rerolls">
+            <h4>Rerolls</h4>
+              <li>
+                  <input id="checkid" type="checkbox" value="test" />
+                  <label for="checkid" style="word-wrap:break-word; width:200px;">Reroll Hit rolls of 1</label>
+              </li>
+              <li>
+                  <input id="checkid2" type="checkbox" value="test" />
+                  <label for="checkid2" style="word-wrap:break-word;width:200px;">Reroll failed Hit rolls</label>
+              </li>
+              <li>
+                  <input id="checkid3" type="checkbox" value="test" />
+                  <label for="checkid3" style="word-wrap:break-word;width:200px;">Reroll Wound rolls of 1</label>
+              </li>
+              <li>
+                  <input id="checkid4" type="checkbox" value="test" />
+                  <label for="checkid4" style="word-wrap:break-word;width:200px;">Reroll failed Wound rolls</label>
+              </li>
+          </div>
+          <div class="modifiers">
+            <h4>Modifiers</h4>
+            <div style="display: flex;flex-direction: row;">
+              <div>Hits
+              </div>
+              <div>Wounds
+              </div>
+            </div>
+          </div>
+          <div class="misc">
+            <h4>Misc</h4>
+          </div>
+        </div>
+
       </div>
   </div>
   <div class="column right">

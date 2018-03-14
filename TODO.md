@@ -18,7 +18,7 @@
 
   ~~8) Interpolation~~
 
-  ~~9) Delete model~~
+  ~~9) Delete model~~ 
 
   10) Finalize Wireframe. (Header, Footer, Model states, Horizontal Scrollbars on Models)
 
@@ -26,8 +26,8 @@
 
   12) Learn CSS requirements
   ~~-vertical dragbars~~
-  ~~-v tabs~~
-
+  ~~-tabs~~
+  
   13) Add CSS
 
   14) Finalize Graphs
