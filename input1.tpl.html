@@ -48,14 +48,6 @@
         <div><input type="number" ng-model="model.hitTrigger.mortals"/></div>
     </div>
     <div class="models-advanced-grid-2">
-<!--             +- to Wound rolls: <input type="number" ng-model="model.woundMod" />
-            <input type="checkbox" ng-model="model.woundTrigger.trigger"/>On Wound rolls of:
-            <select ng-model="model.woundTrigger.roll" ng-options="roll.name for roll in rolls">
-            </select>
-            </br>
-            Extra mortal(s): <input type="number" ng-model="model.woundTrigger.mortals" />
-            Damage instead: <input type="number" ng-model="model.woundTrigger.d" />
-            AP instead: <input type="number" ng-model="model.woundTrigger.ap" /> -->
         <div><span>+- to Wound Rolls</span></div>
         <div><input type="number" ng-model="model.woundMod" /></div>
         <div><input type="checkbox" ng-model="model.woundTrigger.trigger" /><span>On Wound Rolls of</span></div>
@@ -66,7 +58,7 @@
         <div><span>Damage instead</span></div>
         <div><input type="number" ng-model="model.woundTrigger.d"/></div>
         <div><span>AP instead</span></div>
-        <div><input type="number" ng-model="model.hitTrigger.ap"/></div>
+        <div><input type="number" ng-model="model.woundTrigger.ap"/></div>
     </div>
     <div class="models-advanced-grid-2">
             <div><input type="checkbox" ng-model="model.autoWound.auto" />Auto-Wound on</div>

@@ -7,14 +7,14 @@
   </head>
   <body ng-controller="ModelController">
     <div class="body-grid">
-      <div class="header"><h1>Mathhammer</h1></div>
+      <div class="header"><h1 style="text-align: left">Mathhammer Boys</h1></div>
       <div class="models"><h2>Models</h2>
         <div ng-repeat="model in models">
-          <type1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></type1>
-          <type2 ng-if="model.isCombi" model="model" models="models"></type2>
+          <input1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></input1>
+          <input2 ng-if="model.isCombi" model="model" models="models"></input2>
         </div>
-        <script src="type1.directive.js"></script>
-        <script src="type2.directive.js"></script>
+        <script src="input1.directive.js"></script>
+        <script src="input2.directive.js"></script>
           <form>
             <label>
               <input type="radio" ng-model="type.isCombi" ng-value="false">
@@ -31,10 +31,11 @@
       <div class="calcs"><h2>Calcs</h2></div>
       <div class="results">
         <h1>Results</h2>
-        <canvas id="damage-chart"></canvas>
-        <canvas id="dpp-chart"></canvas>
+          <canvas id="damage-chart"></canvas>
+          <canvas id="dpp-chart"></canvas>
+        </div>
       </div>
-      <div class="footer"><h2>Footer</h2></div>
+      <div class="footer"><h4 style="text-align: left">Last Updated 3/18 -- This is an update</h4></div>
   </div>
   </body>
 </html>

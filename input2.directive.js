@@ -1,7 +1,7 @@
-app.directive('type2', function() {
+app.directive('input2', function() {
   return {
     restrict: 'E',
-    templateUrl: 'type2.tpl.html',
+    templateUrl: 'input2.tpl.html',
     scope: {
       model: "=",
       models: "="
