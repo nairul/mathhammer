@@ -7,7 +7,7 @@
   </head>
   <body ng-controller="ModelController">
     <div class="body-grid">
-      <div class="header"><h1 style="text-align: left">Mathhammer Boys</h1></div>
+      <div class="header"><h1 style="text-align: left">Mathhammer by Nairul</h1></div>
       <div class="models"><h2>Models</h2>
         <div ng-repeat="model in models">
           <input1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></input1>
@@ -15,8 +15,8 @@
         </div>
         <script src="input1.directive.js"></script>
         <script src="input2.directive.js"></script>
-          <form>
-            <label>
+          <!-- <form> -->
+<!--             <label>
               <input type="radio" ng-model="type.isCombi" ng-value="false">
               Regular
             </label>
@@ -24,18 +24,21 @@
             <label>
               <input type="radio" ng-model="type.isCombi" ng-value="true">
               Combi
-            </label>
+            </label> -->
+            <br>
             <button ng-click="addModel()">Add Model</button>
-          </form>
+          <!-- </form> -->
       </div>
-      <div class="calcs"><h2>Calcs</h2></div>
+      <div class="calcs"><h2>Calcs</h2>
+        <br>
+        <h2>WORK IN PROGRESS</h2>
+      </div>
       <div class="results">
-        <h1>Results</h2>
+        <h2>Results</h2>
           <canvas id="damage-chart"></canvas>
           <canvas id="dpp-chart"></canvas>
-        </div>
       </div>
-      <div class="footer"><h4 style="text-align: left">Last Updated 3/18 -- This is an update</h4></div>
+      <div class="footer"><h4 style="text-align: left">Update mm/dd/yy! -- summarize latest update here</h4></div>
   </div>
   </body>
 </html>

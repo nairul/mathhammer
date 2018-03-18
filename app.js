@@ -21,6 +21,7 @@ window.app = angular
     '#d2f53c',
     '#fabebe'
   ];
+   
   //exact roll probabilities
   var twoPlus = 5/6
   var threePlus = 4/6

@@ -1,68 +1,70 @@
-<h4>{{model.name}}</h4>
-<div class="models-grid">
-    <div class="models-basic-grid">
-
-        <div><span>Name</span></div>
-        <div><span>Attacks</span></div>
-        <div><span>Skill</span></div>
-        <div><span>Strength</span></div>
-        <div><span>Save</span></div>
-        <div><span>AP</span></div>
-        <div><span>Damage</span></div>
-        <div><span>Points</span></div>
-
-        <div><input type="text" ng-model="model.name" /></div>
-        <div><input type="number" ng-model="model.attacks" /></div>
-        <div><select ng-model="model.skill" ng-options="roll.name for roll in rolls">
-        </select></div>
-        <div><input type="number" ng-model="model.strength" /></div>
-        <div><select ng-model="model.save" ng-options="roll.name for roll in rolls">
-        </select></div>
-        <div><input type="number" ng-model="model.ap" /></div>
-        <div><input type="number" ng-model="model.d" /></div>
-        <div><input type="number" ng-model="model.points" /></div>
-
+<div class="models-grid" style="background-color:{{model.color}}">
+    <div class="model-title-bar">
+        <span><b>{{model.name}}</b></span>
+        <button ng-click="deleteModel(model)" style="float:right">&#10006;</button>
     </div>
-    <div class="models-advanced-grid-1">
-        <div class="rerolls-title"><span><b>Rerolls</b></span></div>
-        <div><input type="checkbox" ng-model="model.rerolls.hits.ones" /></div>
-        <div><span>Reroll Hit Rolls of 1</span></div>
-        <div><input type="checkbox" ng-model="model.rerolls.hits.failed" /></div>
-        <div><span>Reroll Failed Hit Rolls</span></div>
-        <div><input type="checkbox" ng-model="model.rerolls.wounds.ones" /></div>
-        <div><span>Reroll Wound Rolls of 1</span></div>
-        <div><input type="checkbox" ng-model="model.rerolls.wounds.failed" /></div>
-        <div><span>Reroll Failed Wound Rolls</span></div>
-    </div>
-    <div class="models-advanced-grid-2">
-        <div><span>+- to Hit Rolls</span></div>
-        <div><input type="number" ng-model="model.hitMod" /></div>
-        <div><input type="checkbox" ng-model="model.hitTrigger.trigger" /><span>On Hit Rolls of</span></div>
-        <div><select ng-model="model.hitTrigger.roll" ng-options="roll.name for roll in rolls">
+
+        <div class="models-basic-grid">
+
+            <div><span>Attacks</span></div>
+            <div><span>Skill</span></div>
+            <div><span>Strength</span></div>
+            <div><span>Save</span></div>
+            <div><span>AP</span></div>
+            <div><span>Damage</span></div>
+            <div><span>Points</span></div>
+
+            <div><input type="number" ng-model="model.attacks" /></div>
+            <div><select ng-model="model.skill" ng-options="roll.name for roll in rolls">
             </select></div>
-        <div><span>Extra attack(s)</span></div>
-        <div><input type="number" ng-model="model.hitTrigger.attacks" /></div>
-        <div><span>Extra hit(s)</span></div>
-        <div><input type="number" ng-model="model.hitTrigger.hit"/></div>
-        <div><span>Mortal(s) instead</span></div>
-        <div><input type="number" ng-model="model.hitTrigger.mortals"/></div>
-    </div>
-    <div class="models-advanced-grid-2">
-        <div><span>+- to Wound Rolls</span></div>
-        <div><input type="number" ng-model="model.woundMod" /></div>
-        <div><input type="checkbox" ng-model="model.woundTrigger.trigger" /><span>On Wound Rolls of</span></div>
-        <div><select ng-model="model.woundTrigger.roll" ng-options="roll.name for roll in rolls">
+            <div><input type="number" ng-model="model.strength" /></div>
+            <div><select ng-model="model.save" ng-options="roll.name for roll in rolls">
             </select></div>
-        <div><span>Extra Mortal(s))</span></div>
-        <div><input type="number" ng-model="model.woundTrigger.mortals" /></div>
-        <div><span>Damage instead</span></div>
-        <div><input type="number" ng-model="model.woundTrigger.d"/></div>
-        <div><span>AP instead</span></div>
-        <div><input type="number" ng-model="model.woundTrigger.ap"/></div>
+            <div><input type="number" ng-model="model.ap" /></div>
+            <div><input type="number" ng-model="model.d" /></div>
+            <div><input type="number" ng-model="model.points" /></div>
     </div>
-    <div class="models-advanced-grid-2">
-            <div><input type="checkbox" ng-model="model.autoWound.auto" />Auto-Wound on</div>
-            <div><select ng-model="model.autoWound.roll" ng-options="roll.name for roll in rolls"></select></div>
+        <div class="models-advanced-grid-1">
+            <div class="rerolls-title"><span><b>Rerolls</b></span></div>
+            <div><input type="checkbox" ng-model="model.rerolls.hits.ones" /></div>
+            <div><span>Hit Rolls of 1</span></div>
+            <div><input type="checkbox" ng-model="model.rerolls.hits.failed" /></div>
+            <div><span>Failed Hit Rolls</span></div>
+            <div><input type="checkbox" ng-model="model.rerolls.wounds.ones" /></div>
+            <div><span>Wound Rolls of 1</span></div>
+            <div><input type="checkbox" ng-model="model.rerolls.wounds.failed" /></div>
+            <div><span>Failed Wound Rolls</span></div>
+        </div>
+        <div class="models-advanced-grid-2">
+            <div><span>+- to Hit Rolls</span></div>
+            <div><input type="number" ng-model="model.hitMod" /></div>
+            <div><input type="checkbox" ng-model="model.hitTrigger.trigger" /><span>On Hit Rolls of</span></div>
+            <div><select ng-model="model.hitTrigger.roll" ng-options="roll.name for roll in rolls">
+                </select></div>
+            <div><span>Extra attack(s)</span></div>
+            <div><input type="number" ng-model="model.hitTrigger.attacks" /></div>
+            <div><span>Extra hit(s)</span></div>
+            <div><input type="number" ng-model="model.hitTrigger.hit"/></div>
+            <div><span>Mortal(s) instead</span></div>
+            <div><input type="number" ng-model="model.hitTrigger.mortals"/></div>
+        </div>
+        <div class="models-advanced-grid-2">
+            <div><span>+- to Wound Rolls</span></div>
+            <div><input type="number" ng-model="model.woundMod" /></div>
+            <div><input type="checkbox" ng-model="model.woundTrigger.trigger" /><span>On Wound Rolls of</span></div>
+            <div><select ng-model="model.woundTrigger.roll" ng-options="roll.name for roll in rolls">
+                </select></div>
+            <div><span>Extra Mortal(s))</span></div>
+            <div><input type="number" ng-model="model.woundTrigger.mortals" /></div>
+            <div><span>Damage instead</span></div>
+            <div><input type="number" ng-model="model.woundTrigger.d"/></div>
+            <div><span>AP instead</span></div>
+            <div><input type="number" ng-model="model.woundTrigger.ap"/></div>
+        </div>
+        <div class="models-advanced-grid-2">
+                <div><input type="checkbox" ng-model="model.autoWound.auto" /><span>Auto-Wound on</span></div>
+                <div><select ng-model="model.autoWound.roll" ng-options="roll.name for roll in rolls"></select></div>
+        </div>
     </div>
 </div>
-<button ng-click="deleteModel(model)">Delete Model</button>
+</div>
