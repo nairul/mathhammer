@@ -77,11 +77,11 @@ window.app = angular
       points: 10,
       //advanced default
       rerolls: {
-        hit: {
+        hits: {
           ones: false,
           failed: false,
         },
-        wound: {
+        wounds: {
           ones: false,
           failed: false,
         }
@@ -128,6 +128,7 @@ window.app = angular
       mortals : [],
       //results
       damage: [],
+      avgDamage: 0,
       dpp: [],
       //color
       color: colorPallet[$scope.models.length]
@@ -137,7 +138,7 @@ window.app = angular
       $scope.type.isCombi ? newCombiModel : newModel));
 
     //graph
-    function generateDataSet() {
+    function generateDamageData() {
       return  $scope.models.map(function(model, index) {
           return {
             label: model.name,
@@ -147,15 +148,29 @@ window.app = angular
           };
         })
     }
-
+    function generateDppData() {
+      return  $scope.models.map(function(model, index) {
+          return {
+            label: model.name,
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            borderColor: model.color,
+            data: model.dpp
+          };
+        })
+    }
+    //Damage Chart
     var damageChart = new Chart(document.getElementById("damage-chart").getContext('2d'), {
       type: 'line',
       data: {
         labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
-        datasets: generateDataSet()
+        datasets: generateDamageData()
       },
-      maintainAspectRatio: false,
+      // maintainAspectRatio: false,
       options: {
+        title: {
+            display: true,
+            text: 'Damage'
+          },        
         responsive: true,
         maintainAspectRatio: true,
         elements: {
@@ -165,10 +180,34 @@ window.app = angular
           }
       }
     });
+    //DPP Chart
+    var dppChart = new Chart(document.getElementById("dpp-chart").getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ["T3", "T4", "T5", "T6", "T7", "T8"],
+        datasets: generateDppData()
+      },
+      // maintainAspectRatio: false,
+      options: {
+        title: {
+            display: true,
+            text: 'Damage Per Point (DPP)'
+          },
+        responsive: true,
+        maintainAspectRatio: true,
+        elements: {
+              line: {
+                  tension: 0, // disables bezier curves
+              }
+          }
+      }
+    });    
 
     $scope.$watch('models', function updateGraph() {
-      damageChart.data.datasets = generateDataSet();
+      damageChart.data.datasets = generateDamageData();
+      dppChart.data.datasets = generateDppData();
       damageChart.update();
+      dppChart.update();
     }, true);
 
   };

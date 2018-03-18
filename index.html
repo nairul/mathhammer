@@ -1,45 +1,40 @@
-<!DOCTYPE html>
 <html ng-app="mathhammer">
   <head>
+    <link href="style.css" rel="stylesheet">
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/chart.js/dist/Chart.js"></script>
     <script src="app.js"></script>
-    <meta charset="utf-8">
-    <title></title>
-    <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-    </style>
   </head>
   <body ng-controller="ModelController">
-    <form >
-      <label>
-        <input type="radio" ng-model="type.isCombi" ng-value="false">
-        Regularr
-      </label>
-      <br>
-      <label>
-        <input type="radio" ng-model="type.isCombi" ng-value="true">
-        Combi
-      </label>
-    </form>
-
-    <button ng-click="addModel()">Add Model</button>
-    <div ng-repeat="model in models">
-      <type1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></type1>
-      <type2 ng-if="model.isCombi" model="model" models="models"></type2>
-    <!-- {{model}} -->
-    </div>
-    <script src="type1.directive.js"></script>
-    <script src="type2.directive.js"></script>
-
-    <div style="border:1px solid black;position:fixed;bottom:2%;right:2%">
-    <canvas id="damage-chart"></canvas>
-    <!-- <canvas id="dpp-chart" width="400" height="400"></canvas> -->
-    </div>
-
-
+    <div class="body-grid">
+      <div class="header"><h1>Mathhammer</h1></div>
+      <div class="models"><h2>Models</h2>
+        <div ng-repeat="model in models">
+          <type1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></type1>
+          <type2 ng-if="model.isCombi" model="model" models="models"></type2>
+        </div>
+        <script src="type1.directive.js"></script>
+        <script src="type2.directive.js"></script>
+          <form>
+            <label>
+              <input type="radio" ng-model="type.isCombi" ng-value="false">
+              Regular
+            </label>
+            <br>
+            <label>
+              <input type="radio" ng-model="type.isCombi" ng-value="true">
+              Combi
+            </label>
+            <button ng-click="addModel()">Add Model</button>
+          </form>
+      </div>
+      <div class="calcs"><h2>Calcs</h2></div>
+      <div class="results">
+        <h1>Results</h2>
+        <canvas id="damage-chart"></canvas>
+        <canvas id="dpp-chart"></canvas>
+      </div>
+      <div class="footer"><h2>Footer</h2></div>
+  </div>
   </body>
 </html>

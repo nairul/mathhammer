@@ -35,15 +35,16 @@ app.directive('type1', function() {
         scope.deleteModel = function(model) {
           var index = scope.models.indexOf(model)
           scope.models.splice(index, 1)  
-        } 
+        }
+        var reducer = (accumulator, currentValue) => accumulator + currentValue 
 
         //CALCULATE HITS
         //grab input
         var skill = scope.model.skill.value
         var attacks = scope.model.attacks
         var hitRerolls = {
-          ones: scope.model.rerolls.hit.ones,
-          failed: scope.model.rerolls.hit.failed
+          ones: scope.model.rerolls.hits.ones,
+          failed: scope.model.rerolls.hits.failed
         }
         var hitMod = scope.model.hitMod/6
         var hitTrigger = {}
@@ -150,8 +151,8 @@ app.directive('type1', function() {
         var d = scope.model.d
         var points = scope.model.points
         var woundRerolls = {
-          ones: scope.model.rerolls.wound.ones,
-          failed: scope.model.rerolls.wound.failed
+          ones: scope.model.rerolls.wounds.ones,
+          failed: scope.model.rerolls.wounds.failed
         }
         var woundMod = scope.model.woundMod/6
         var woundTrigger = {}
@@ -296,9 +297,10 @@ app.directive('type1', function() {
             // unsavedTotal[i] = woundTotal[i] * (1-(save + ap))
             // //calculate damage for T3..T8
             // damage[i] = unsavedTotal[i] * d
-//BASIC OLD     
 
           }
+        //average damage for T3..T8
+        avgDamage = (damage.reduce(reducer))/6
 
         //show calculations in html
         scope.model.roundWound = roundWound
@@ -312,6 +314,7 @@ app.directive('type1', function() {
         scope.model.regDamage = regDamage
         scope.model.mortals = mortals
         scope.model.damage = damage
+        scope.model.avgDamage = avgDamage
         scope.model.dpp = dpp
       };
 
