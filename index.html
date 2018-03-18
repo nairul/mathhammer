@@ -7,7 +7,11 @@
   </head>
   <body ng-controller="ModelController">
     <div class="body-grid">
-      <div class="header"><h1 style="text-align: left">Mathhammer by Nairul</h1></div>
+      <div class="header">
+        <h1 style="float: left">Mathhammer by Nairul</h1><h3 style="float:left; ">for Warhammer 40,000 8th Ed.</h3>
+        <h3 style="float: right"><a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Donate</a></h3>
+
+      </div>
       <div class="models"><h2>Models</h2>
         <div ng-repeat="model in models">
           <input1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></input1>
@@ -29,7 +33,7 @@
             <button ng-click="addModel()">Add Model</button>
           <!-- </form> -->
       </div>
-      <div class="calcs"><h2>Calcs</h2>
+      <div class="calcs"><h2>Calculations</h2>
         <br>
         <h2>WORK IN PROGRESS</h2>
       </div>
@@ -38,7 +42,10 @@
           <canvas id="damage-chart"></canvas>
           <canvas id="dpp-chart"></canvas>
       </div>
-      <div class="footer"><h4 style="text-align: left">Update mm/dd/yy! -- summarize latest update here</h4></div>
+      <div class="footer">
+        <h4 style="float: right"><a href="#">Github</a> | <a href="#">Paypal</a></h4>        
+        <h4 style="float: left">Update mm/dd/yy! -- summarize latest update here</h4>
+      </div>
   </div>
   </body>
 </html>
