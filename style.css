@@ -51,13 +51,11 @@ hr {
   grid-column-end: 4;
 }
 
+
 .models-grid {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto auto auto;
   grid-gap: 5px;
   padding: 10px;
-  min-height: 100%;
   border: 1px solid black;
 }
 
@@ -74,16 +72,20 @@ hr {
   grid-tempalte-rows: auto auto;
   text-align: left;
   border-bottom: 1px dotted black;
+  grid-gap: 5px;
   padding: 5px;
 }
 
 .models-advanced-grid-1 {
   display: grid;
-  grid-template-columns: auto auto ;
-  grid-template-rows: auto auto auto auto auto;
-  grid-gap: 5px;
   border-right: 1px dotted black;
+  grid-gap: 5px;
   padding: 5px;
+  grid-template-areas: 
+  'item1 item2'
+  'item3 item4'
+  'item5 item6'
+  'item7 item8';
 }
 
 .rerolls-title {
@@ -91,18 +93,52 @@ hr {
   grid-column-end: 3;
 }
 
+.item1 {grid-area: item1;}
+.item2 {grid-area: item2;}
+.item3 {grid-area: item3;}
+.item4 {grid-area: item4;}
+.item5 {grid-area: item5;}
+.item6 {grid-area: item6;}
+.item7 {grid-area: item7;}
+.item8 {grid-area: item8;}
+.item9 {grid-area: item9;}
+.item10 {grid-area: item10;}
+.item11 {grid-area: item11;}
+.item12 {grid-area: item12;}
+.item13 {grid-area: item13;}
+.item14 {grid-area: item14;}
+.item15 {grid-area: item15;}
+.item16 {grid-area: item16;}
+.item17 {grid-area: item17;}
+.item18 {grid-area: item18;}
+.item19 {grid-area: item19;}
+.item20 {grid-area: item20;}
+.item21 {grid-area: item21;}
+.item22 {grid-area: item22;}
+.item23 {grid-area: item23;}
+
+
 .models-advanced-grid-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 5px;
-  border-right: 1px dotted black;
   padding: 5px;
+  grid-template-areas: 
+    '. item2 item3 . item4 item5'
+    'item6 item7 item8 item9 item10 item11'
+    '. item12 item13 . item14 item15'
+    '. item16 item17 . item18 item19'
+    '. item20 item21 . item22 item23';
+  border-right: 1px dotted black;
 }
 
-.modifiers-title {
-  grid-column-start: 1;
-  grid-column-end: 5;
+.models-advanced-grid-3 {
+  display: grid;
+/*  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto;*/
+  grid-gap: 5px;
+  padding: 5px;
+  grid-template-areas:
+  'item1 item2 item3';
 }
 
 .calcs {
