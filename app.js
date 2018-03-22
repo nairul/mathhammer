@@ -10,16 +10,46 @@ window.app = angular
   $scope.models = [];
   //array of colors
   var colorPallet = [
-    '#e6194b',
-    '#3cb44b',
-    '#ffe119',
-    '#0082c8',
-    '#f58231',
-    '#911eb4',
-    '#46f0f0',
-    '#f032e6',
-    '#d2f53c',
-    '#fabebe'
+    {
+      color: '#e6194b',
+      inUse: false
+    },
+    {
+      color: '#3cb44b',
+      inUse: false
+    },
+    {
+      color: '#ffe119',
+      inUse: false
+    },
+    {
+      color: '#0082c8',
+      inUse: false
+    },
+    {
+      color: '#f58231',
+      inUse: false
+    },
+    {
+      color: '#911eb4',
+      inUse: false
+    },
+    {
+      color: '#46f0f0',
+      inUse: false
+    },
+    {
+      color: '#f032e6',
+      inUse: false
+    },
+    {
+      color: '#d2f53c',
+      inUse: false
+    },
+    {
+      color: '#fabebe',
+      inUse: false
+    }
   ];
    
   //exact roll probabilities
@@ -55,6 +85,8 @@ window.app = angular
 
   //add new model object to array of all models
   $scope.addModel = function() {
+    var colorItem = colorPallet.find(a => !a.inUse)
+    colorItem.inUse = true
     var newCombiModel = {
       isCombi: true,
       selection: [],
@@ -62,10 +94,16 @@ window.app = angular
       points: 10,
       damage: [],
       dpp: [],
-      color: colorPallet[$scope.models.length]
+      // color: colorPallet[$scope.models.length]
+      color: colorItem.color
+      // color: colorPallet.find(function(element){
+      //   return !element.inUse
+      // }).color
     };
 
     var newModel = {
+      //height
+      // height: 100,
       //basic default
       isCombi: false,
       name: 'Model' + ' ' + ($scope.models.length+1),
@@ -132,7 +170,8 @@ window.app = angular
       avgDamage: 0,
       dpp: [],
       //color
-      color: colorPallet[$scope.models.length]
+      colorItem: colorItem
+      //css
     };
 
     $scope.models.push(Object.assign({},
@@ -144,7 +183,7 @@ window.app = angular
           return {
             label: model.name,
             backgroundColor: 'rgba(255, 255, 255, 0)',
-            borderColor: model.color,
+            borderColor: model.colorItem.color,
             data: model.damage
           };
         })
@@ -154,7 +193,7 @@ window.app = angular
           return {
             label: model.name,
             backgroundColor: 'rgba(255, 255, 255, 0)',
-            borderColor: model.color,
+            borderColor: model.colorItem.color,
             data: model.dpp
           };
         })

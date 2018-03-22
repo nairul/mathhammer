@@ -15,16 +15,17 @@ span {
   text-align: left;
   text-outline
 }
-
 .body-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 1fr auto;
   grid-gap: 10px;
-  background-color: #0036A9/*#727272*/;
+  /*background-color: #727272;*/
+background-color: #3c424d;
+background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
   padding: 10px;
   min-height: 100%;
-  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+  font-family: "Helvetica Neue,Helvetica,Arial,sans-serif";
 }
 h1, h2, h3 {
  text-align: center;
@@ -48,7 +49,7 @@ hr {
 }
 .models {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
 }
 
 
@@ -57,16 +58,28 @@ hr {
   grid-gap: 5px;
   padding: 10px;
   border: 1px solid black;
+  grid-template-areas: 
+  'title title title'
+  'basic basic basic'
+  'rerolls modifiers misc'
+}
+
+.calcs-grid {
+/*  display: grid;
+  grid-gap: 5px;
+  padding: 10px;
+  border: 1px solid black;*/
 }
 
 .model-title-bar {
-  grid-column-start: 1;
-  grid-column-end: 5;
+/*  grid-column-start: 1;
+  grid-column-end: 5;*/
+  grid-area: title;
 }
 
 .models-basic-grid {
-  grid-column-start: 1;
-  grid-column-end: 5;
+/*  grid-column-start: 1;
+  grid-column-end: 5;*/
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-tempalte-rows: auto auto;
@@ -74,6 +87,7 @@ hr {
   border-bottom: 1px dotted black;
   grid-gap: 5px;
   padding: 5px;
+  grid-area: basic;
 }
 
 .models-advanced-grid-1 {
@@ -81,6 +95,7 @@ hr {
   border-right: 1px dotted black;
   grid-gap: 5px;
   padding: 5px;
+  grid-area: rerolls;
   grid-template-areas: 
   'item1 item2'
   'item3 item4'
@@ -122,6 +137,7 @@ hr {
   display: grid;
   grid-gap: 5px;
   padding: 5px;
+  grid-area: modifiers;
   grid-template-areas: 
     '. item2 item3 . item4 item5'
     'item6 item7 item8 item9 item10 item11'
@@ -137,6 +153,7 @@ hr {
   grid-template-rows: auto;*/
   grid-gap: 5px;
   padding: 5px;
+  grid-area: misc;
   grid-template-areas:
   'item1 item2 item3';
 }
@@ -146,7 +163,7 @@ hr {
   grid-column-end: 6;
 }
 .results {
-  grid-column-start: 6;
+  grid-column-start: 5;
   grid-column-end: 9;
 }
 .footer {

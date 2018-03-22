@@ -5,27 +5,17 @@ app.directive('input1', function() {
     scope: {
       model: "=",
       models: "=",
-      rolls: "="
+      rolls: "=",
+      index: "="
     },
     link: function(scope, elem, attr) {
-      //set exact probabilities
-      // var twoPlus = 5/6
-      // var threePlus = 4/6
-      // var fourPlus = 3/6
-      // var fivePlus = 2/6
-      // var sixPlus = 1/6
-      // //set default selections  
-      // scope.rolls = [
-      // {name:'2+', value: twoPlus},
-      // {name:'3+', value: threePlus},
-      // {name:'4+', value: fourPlus},
-      // {name:'5+', value: fivePlus},
-      // {name:'6+', value: sixPlus},
-      // {name:'7+', value: 0}
-      // ]
-      
       // scope.model.skill = scope.rolls[1]
       // scope.model.save = scope.rolls[1]
+      
+      //grab height
+        // var element = angular.element(document.querySelectorAll('.models-grid')); 
+        // var height = element[0].offsetHeight;
+        // scope.model.height = height
 
       function calculate() {
         //for .reduce() method
@@ -33,8 +23,8 @@ app.directive('input1', function() {
           return a + b;
         }
         scope.deleteModel = function(model) {
-          var index = scope.models.indexOf(model)
-          scope.models.splice(index, 1)  
+          scope.models.splice(scope.index, 1)
+          scope.model.colorItem.inUse = false   
         }
         var reducer = (accumulator, currentValue) => accumulator + currentValue 
 
@@ -316,6 +306,8 @@ app.directive('input1', function() {
         scope.model.damage = damage
         scope.model.avgDamage = avgDamage
         scope.model.dpp = dpp
+        scope.model.name = 'Model ' + (scope.index + 1)
+
       };
 
       // initial run

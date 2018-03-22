@@ -14,12 +14,12 @@
 
       </div>
       <div class="models"><h2>Models</h2>
-        <div ng-repeat="model in models">
-          <input1 model="model" models="models" rolls="rolls" ng-if="!model.isCombi"></input1>
-          <input2 ng-if="model.isCombi" model="model" models="models"></input2>
+        <div ng-repeat="model in models track by $index">
+          <input1 model="model" models="models" rolls="rolls" index="$index" ng-if="!model.isCombi"></input1>
+          <!-- <input2 ng-if="model.isCombi" model="model" models="models"></input2> -->
         </div>
         <script src="input1.directive.js"></script>
-        <script src="input2.directive.js"></script>
+        <!-- <script src="input2.directive.js"></script> -->
           <!-- <form> -->
 <!--             <label>
               <input type="radio" ng-model="type.isCombi" ng-value="false">
@@ -34,10 +34,13 @@
             <button ng-click="addModel()">Add Model</button>
           <!-- </form> -->
       </div>
-      <div class="calcs"><h2>Calculations</h2>
-        <br>
-        <h2>WORK IN PROGRESS</h2>
-      </div>
+<!--       <div class="calcs"><h2>Calculations</h2>
+        <div ng-repeat="model in models track by $index">
+          <calc1 model="model" models="models" rolls="rolls" index="$index" ng-if="!model.isCombi"><calc1> -->
+          <!-- <calc2></calc2> -->
+<!--           <script src="calc1.directive.js"></script> -->
+<!--         </div> -->
+<!--       </div> -->
       <div class="results">
         <h2>Results</h2>
           <canvas id="damage-chart"></canvas>

@@ -1,8 +1,8 @@
-<div class="models-grid" style="background-color:{{model.color}}">
-<!--     <div class="model-title-bar">
+<div class="models-grid" style="background-color:{{model.colorItem.color}};">
+    <div class="model-title-bar">
         <span style="font-size: 15px"><b>{{model.name}}</b></span>
         <button ng-click="deleteModel(model)" style="float:right">&#10006;</button>
-    </div> -->
+    </div>
 
         <div class="models-basic-grid">
             <div><span>Attacks</span></div>
@@ -55,7 +55,7 @@
             <div class="item19"><input type="number" ng-model="model.woundTrigger.d"/></div>
             <div class="item20"><span>Mortal(s) instead</span></div>
             <div class="item21"><input type="number" ng-model="model.hitTrigger.mortals"/></div>
-            <div class="item22"><span>Extra Mortal(s))</span></div>
+            <div class="item22"><span>Extra Mortal(s)</span></div>
             <div class="item23"><input type="number" ng-model="model.woundTrigger.mortals" /></div>
         </div>
         <div class="models-advanced-grid-3">
